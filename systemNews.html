@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>炒股网</title>
+    <!-- InstanceEndEditable -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">   
+         <option selected="selected" value="0">其他服务</option>  
+         <option value="1">手机</option>  
+         <option value="2">邮箱</option>  
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<script> 
+//放到桌面
+function toDesktop(sUrl,sName)
+{
+try
+{
+var WshShell = new ActiveXObject("WScript.Shell");
+var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+oUrlLink.TargetPath = sUrl; 
+oUrlLink.Save(); 
+}
+catch(e) 
+{
+alert("当前IE安全级别不允许操作！请设置后在操作.");
+}
+}
+//收藏
+ function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }   
+ //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+               document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+</script>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="../商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+    <!-- InstanceBeginEditable name="EditRegion4" -->
+ <div class="wraper">
+    <!---->
+    <div class="wraper select-content">
+ <div class="select-left">
+   <div class="select-title">账户设置</div>
+   <ul class="select-list">
+   <li><span class="tt"><em class="b1"></em></span><span class="tt"><a href="#">个人信息</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b2"></em></span><span class="tt"><a href="#">积分记录</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b3"></em></span><span class="tt"><a href="#">修改密码</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b4"></em></span><span class="tt"><a href="#">密码保护</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b5"></em></span><span class="tt"><a href="#">兑换记录</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b6"></em></span><span class="tt"><a href="#">兑换设置</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="a7"></em></span><span class="tt"><a href="#">系统消息</a></span><span class="tt">></span></li>
+   </ul>
+ </div>
+ <div class="content-right">
+  <div class="content-title">
+     系统消息
+   </div>
+  <!---->
+  <div class="xiaoxi">
+	<table  border="1" bordercolor="#cccccc" id="xt-news">
+        <tr>
+			<th width="85px">状态</th>
+			<th width="245px">标题</th>
+			<th width="90px">来自</th>
+			<th width="130px">时间</th>
+			<th>操作</th>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu" >已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+		<tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+        <tr align="center">
+			<td><input type="checkbox" name="yidu">已读</td>
+			<td class="rz">邮箱认证通过</td>
+			<td class="xx">系统消息</td>
+			<td class="sjian">2015-04-28</td>
+			<td><a href="#" class="cz">查看</a>&nbsp;&nbsp;<a href="#" class="cz delete">删除</a></td>
+		</tr>
+   </table>
+   <div>
+   <div class="pull-left">
+     <span><input type="button" value="全选" class="qxfx" id="qxfx"></span>
+     &nbsp;&nbsp;<span><input type="button" value="删除所选" class="scsx" id="scsx"></span>
+   </div>
+    <script src="style/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#qxfx").bind("click", function () {
+              $("[name = yidu]:checkbox").attr("checked", true);
+            });
+			$("#scsx").bind("click", function () {
+                var result = new Array();
+                $("[name =yidu]:checkbox").each(function () {
+                    if ($(this).is(":checked")) {
+						var index=$("[name =yidu]:checkbox").index(this)
+                        result.push(index);
+                    }
+                });
+				alert("要删除的索引有："+result.join(","));
+				$("input:checkbox:checked").parent("td").parent("tr").remove();
+            });
+			$("tr .delete").click(function(){
+			  var haha=$("tr .delete").index(this);
+			  alert("当前删除的索引："+haha);
+			  $("tr .delete").eq(haha).parent("td").parent("tr").remove();
+			});
+        });
+    </script>
+   <div class="pull-right">
+     每页显示:&nbsp;<span class="pageNum">10</span>&nbsp;<span class="pageNum2">20</span>&nbsp;<span class="pageNum2">30</span>
+   </div>
+   <div class="clearfix"></div>
+   </div>
+   </div>
+  <!---->
+ </div>    
+</div>
+    <!---->
+</div>
+	<!-- InstanceEndEditable --> 
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+       <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+      </div>
+      <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+      <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div> 
+	  <script>
+	   $(function(){
+		 $(".swx").hover(function(){
+		   $(".wxshow").css("display","block");	 
+		 },function(){
+		   $(".wxshow").css("display","none");	  
+		});  
+		$(".wb").hover(
+		function () {
+			$(".wbshow").css("display","block");
+		},
+		function () {
+			$(".wbshow").css("display","none");
+		}
+	); 
+	   });
+	  </script>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+     
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+      
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+<!-- InstanceEnd --></html>

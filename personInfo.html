@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>炒股网</title>
+    <!-- InstanceEndEditable -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">   
+         <option selected="selected" value="0">其他服务</option>  
+         <option value="1">手机</option>  
+         <option value="2">邮箱</option>  
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<script> 
+//放到桌面
+function toDesktop(sUrl,sName)
+{
+try
+{
+var WshShell = new ActiveXObject("WScript.Shell");
+var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+oUrlLink.TargetPath = sUrl; 
+oUrlLink.Save(); 
+}
+catch(e) 
+{
+alert("当前IE安全级别不允许操作！请设置后在操作.");
+}
+}
+//收藏
+ function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }   
+ //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+               document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+</script>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="../商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+    <!-- InstanceBeginEditable name="EditRegion4" -->
+<div class="wraper">
+    <!---->
+    <div class="wraper select-content">
+ <div class="select-left">
+   <div class="select-title">账户设置</div>
+   <ul class="select-list">
+    <li class="at-there"><em class="tt"><span class="a1"></em></span><span class="tt"><a href="#">个人信息</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b2"></em></span><span class="tt"><a href="#">积分记录</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b3"></em></span><span class="tt"><a href="#">修改密码</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b4"></em></span><span class="tt"><a href="#">密码保护</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b5"></em></span><span class="tt"><a href="#">兑换记录</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b6"></em></span><span class="tt"><a href="#">兑换设置</a></span><span class="tt">></span></li>
+    <li><span class="tt"><em class="b7"></em></span><span class="tt"><a href="#">系统消息</a></span><span class="tt">></span></li>
+   </ul>
+ </div>
+ <div class="content-right">
+   <div class="content-title">
+     个人信息管理
+   </div>
+   <form class="finish_info" name="finish_info">
+     <div class="tishi">亲爱的用户<span style="color:#e25b2c;font-size:15px;">哈哈</span>,填写真实的资料,有助于好友找到你哟!</div>
+     <table border="0" cellspacing="0" width="620" style="margin:0 auto;">
+     <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;">当前头像：</td>
+     <td><img src="picture/touxiang.png"><span style="padding-left:15px;"></span> 
+     <span class="fileInput left">
+          <input type="file" name="upfile" id="upfile2" class="upfile" onchange="document.getElementById('upfileResult').innerHTML=this.value"/>
+          <input class="upFileBtn" type="button" value="上传图片" onclick="document.getElementById('upfile2').click()" />
+     </span>
+     </td>
+    </tr>
+     <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;"><em style="color:red;">*</em>昵称：</td>
+     <td><input type="text" class="input-style nkName" name="nkName"></td>
+    </tr>
+    <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;"><em style="color:red;">*</em>性别：</td>
+     <td>
+     <span style="padding-right:15px;"><input type="radio" name="sex" class="sex" value="man"> 男</span>
+     <span style="padding-right:15px;"><input type="radio" name="sex" class="sex" value="woman"> 女</span>
+     <span><input type="radio" name="sex" class="sex" value="baomi"> 保密</span>	
+     </td>
+    </tr>
+    <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;">生日：</td>
+     <td>
+     <select name="SYear" id="SYear" style="width:80px;padding:4px;">  
+       <option value="">年</option>  
+     </select>  
+    <select name="SMonth" id="SMonth" style="width:80px;padding:4px;">  
+       <option value="">月</option>  
+    </select>  
+    <select name="SDay" id="SDay" style="width:80px;padding:4px;">  
+       <option value="">日</option>  
+    </select>  
+     </td>
+    </tr>
+     <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;">居住地：</td>
+     <td>
+     <select style="width:130px;padding:4px" id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select>
+     <select style="width:80px;padding:4px" id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict');" ></select>
+     <select style="width:130px;padding:4px;" id="seachdistrict" name="seachdistrict" ></select>
+     </td>
+    </tr>
+    <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;">常用邮箱：</td>
+     <td><input type="text" class="input-style cyyx" name="cyyx"><em style="color:#b8b8b8;padding-left:20px;">(推荐使用QQ邮箱)</em><span style="padding-left:20px;"></span><input type="button" value="验证" class="yz-btn"></td>
+    </tr>
+     <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;">手机号码：</td>
+     <td><input type="text" class="input-style sjhm" name="sjhm"><span style="padding-left:20px;"></span><input type="button" value="验证" class="yz-btn"></td>
+    </tr>
+    <tr>
+	 <td style="width:92px; height: 50px;text-align:right;padding-right:15px;">QQ：</td>
+     <td><input type="text" class="input-style qq" name="qq"></td>
+    </tr>
+    </table>
+    <p class="save-btn"><input type="button" value="保存" class="save" id="person_save"></p>
+   </form>
+ </div>    
+</div>
+    <!---->
+</div>
+<script src="style/js/jquery-1.7.2.min.js"></script>
+<script src="style/js/jquery.validate.js"></script>
+<script src="style/js/jquery.validate.message_cn.js"></script>
+<script src="style/js/Area.js"></script>
+<script src="style/js/AreaData_min.js"></script>
+ <script type="text/javascript">
+ $(function (){
+	initComplexArea('seachprov', 'seachcity', 'seachdistrict', area_array, sub_array, '0', '0', '0');
+});
+function getAreaID(){//得到地区码
+	var area = 0;    
+	if($("#seachdistrict").val() != "0"){
+		area = $("#seachdistrict").val();                
+	}else if ($("#seachcity").val() != "0"){
+		area = $("#seachcity").val();
+	}else{
+		area = $("#seachprov").val();
+	}
+	return area;
+}
+function getAreaNamebyID(areaID){//根据地区码查询地区名
+	var areaName = "";
+	if(areaID.length == 2){
+		areaName = area_array[areaID];
+	}else if(areaID.length == 4){
+		var index1 = areaID.substring(0, 2);
+		areaName = area_array[index1]+ sub_array[index1][areaID];
+	}else if(areaID.length == 6){
+		var index1 = areaID.substring(0, 2);
+		var index2 = areaID.substring(0, 4);
+		areaName = area_array[index1] + sub_array[index1][index2]+ sub_arr[index2][areaID];
+	}
+	return areaName;
+}
+ $(function(){
+  var yearid = $('#SYear')    //年所在的控件
+  var monthid = $('#SMonth')    //月所在的控件
+  var dayid = $('#SDay')    //天所在的控件
+  var myDate = new Date();
+  var year = myDate.getFullYear();
+  for(var i=(year-20);i<=(year+20);i++){//以今年为准，前20年，后20年  
+   yearid.append('<option value="'+i+'">'+i+'</option>')
+  }
+  yearid.change(function(){
+  monthid.html('')
+  for(var i=1;i<=12;i++){
+     monthid.append('<option value="'+i+'">'+i+'</option>')
+  }            
+  monthid.change()
+ })
+ monthid.change(function(){
+   var yearValue = yearid.val()
+   var monthValue = parseInt(monthid.val())
+   var dayvalue ;
+   dayid.html('')
+   if(monthValue==1||monthValue==3||monthValue==5||monthValue==7||monthValue==8||monthValue==10||monthValue==12)   {
+     dayvalue = 31
+   }else if(monthValue==4||monthValue==6||monthValue==11||monthValue==9)    {
+     dayvalue = 30
+   }else if(monthValue==2){
+     if(yearValue%4==0 && (yearValue%4 !=0 || yearValue%400==0)){ //闰年
+       dayvalue = 29
+     }else{
+       dayvalue = 28    
+   }
+ }
+for(var i=1;i<=dayvalue;i++){
+    dayid.append('<option value="'+i+'">'+i+'</option>')
+}
+})
+ $(".finish_info").validate({
+		rules:{
+			  cyyx:{email:true,},
+			  sjhm:{isMobile:true},
+			  qq:{required: true},
+			  nkName:{required:true},
+			  sex:{required:true}
+			  },
+		  messages:{
+	          qq: {
+                  required: "请输入常用qq"
+              },
+			  nkName: {
+                  required: "请输入昵称"
+              },
+			  sex: {
+                  required: "性别必须选择"
+              }
+			  },errorPlacement: function (error, element) { //指定错误信息位置
+                   if (element.is(':radio') || element.is(':checkbox')) { //如果是radio或checkbox
+                         var eid = element.attr('name'); //获取元素的name属性
+                         error.appendTo(element.parent().parent()); //将错误信息添加当前元素的父结点后面
+                   }else {error.insertAfter(element);
+             }}
+		});
+	$('#person_save').on('click', function() {
+		if(!$(".finish_info").valid()){
+			alert("请正确填写重置密码表单！");
+			return false;
+		}else{
+			var person_data='';
+			var areaID = getAreaID();
+			var areaName = getAreaNamebyID(areaID) ;
+			var p_img=$("#upfile2").val();
+			var nkName=$(".nkName").val();
+			var sex=$("input[name='sex']:checked").val();
+			var year = $('#SYear').val();
+            var month = $('#SMonth').val();
+            var day =  $('#SDay').val();
+            var borth=year+","+month+","+day;
+			var cyyx=$(".cyyx").val();
+			var sjhm=$(".sjhm").val();
+			var qq=$(".qq").val();
+			person_data ="p_img="+p_img+"&"+"nkName="+nkName+"&"+"sex="+sex+"&"+"borth="+borth+"&"+"areaName="+areaName+"&"+"cyyx="+cyyx+"&"+"sjhm="+sjhm+"&"+"qq="+qq;
+			alert(person_data);
+			$.ajax({
+				type: "POST",
+				url: "个人信息.php",
+				dataType: "json",
+				data:person_data,
+				success: function(data) {
+				},
+				error: function(x, e) {
+					
+				},
+				complete: function(x) {
+					
+				}
+			});
+		}
+	});
+});	  
+</script>
+	<!-- InstanceEndEditable --> 
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+       <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+      </div>
+      <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+      <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div> 
+	  <script>
+	   $(function(){
+		 $(".swx").hover(function(){
+		   $(".wxshow").css("display","block");	 
+		 },function(){
+		   $(".wxshow").css("display","none");	  
+		});  
+		$(".wb").hover(
+		function () {
+			$(".wbshow").css("display","block");
+		},
+		function () {
+			$(".wbshow").css("display","none");
+		}
+	); 
+	   });
+	  </script>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+     
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+      
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+<!-- InstanceEnd --></html>
