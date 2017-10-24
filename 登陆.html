@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>炒股网</title>
+    <!-- InstanceEndEditable -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">   
+         <option selected="selected" value="0">其他服务</option>  
+         <option value="1">手机</option>  
+         <option value="2">邮箱</option>  
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<script> 
+//放到桌面
+function toDesktop(sUrl,sName)
+{
+try
+{
+var WshShell = new ActiveXObject("WScript.Shell");
+var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+oUrlLink.TargetPath = sUrl; 
+oUrlLink.Save(); 
+}
+catch(e) 
+{
+alert("当前IE安全级别不允许操作！请设置后在操作.");
+}
+}
+//收藏
+ function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }   
+ //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+               document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+</script>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li>
+         <li><a href="比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+    <!-- InstanceBeginEditable name="EditRegion4" -->
+<div class="wraper">
+  <div class="login-content">
+  <div class="login-left pull-left">
+    <div id="playBox">
+    <div class="pre"></div>
+    <div class="next"></div>
+    <div class="smalltitle">
+      <ul>
+        <li class="thistitle"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <ul class="oUlplay">
+       <li><a href="#" target="_blank"><img src="picture/banner1.png"></a></li>
+       <li><a href="#" target="_blank"><img src="picture/banner2.png"></a></li>
+       <li><a href="#" target="_blank"><img src="picture/banner1.png"></a></li>
+       <li><a href="#" target="_blank"><img src="picture/banner2.png"></a></li>
+       <li><a href="#" target="_blank"><img src="picture/banner1.png"></a></li>
+       <li><a href="#" target="_blank"><img src="picture/banner2.png"></a></li>
+    </ul>
+  </div>
+  <script>
+  function getStyle(obj,name)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[name]
+	}
+	else
+	{
+		return getComputedStyle(obj,false)[name]
+	}
+}
+
+function getByClass(oParent,nClass)
+{
+	var eLe = oParent.getElementsByTagName('*');
+	var aRrent  = [];
+	for(var i=0; i<eLe.length; i++)
+	{
+		if(eLe[i].className == nClass)
+		{
+			aRrent.push(eLe[i]);
+		}
+	}
+	return aRrent;
+}
+
+function startMove(obj,att,add)
+{
+	clearInterval(obj.timer)
+	obj.timer = setInterval(function(){
+	   var cutt = 0 ;
+	   if(att=='opacity')
+	   {
+		   cutt = Math.round(parseFloat(getStyle(obj,att)));
+	   }
+	   else
+	   {
+		   cutt = Math.round(parseInt(getStyle(obj,att)));
+	   }
+	   var speed = (add-cutt)/4;
+	   speed = speed>0?Math.ceil(speed):Math.floor(speed);
+	   if(cutt==add)
+	   {
+		   clearInterval(obj.timer)
+	   }
+	   else
+	   {
+		   if(att=='opacity')
+		   {
+			   obj.style.opacity = (cutt+speed)/100;
+			   obj.style.filter = 'alpha(opacity:'+(cutt+speed)+')';
+		   }
+		   else
+		   {
+			   obj.style[att] = cutt+speed+'px';
+		   }
+	   }
+	   
+	},30)
+}
+
+  window.onload = function()
+  {
+	  var oDiv = document.getElementById('playBox');
+	  var oPre = getByClass(oDiv,'pre')[0];
+	  var oNext = getByClass(oDiv,'next')[0];
+	  var oUlBig = getByClass(oDiv,'oUlplay')[0];
+	  var aBigLi = oUlBig.getElementsByTagName('li');
+	  var oDivSmall = getByClass(oDiv,'smalltitle')[0]
+	  var aLiSmall = oDivSmall.getElementsByTagName('li');
+	  
+	  function tab()
+	  {
+	     for(var i=0; i<aLiSmall.length; i++)
+	     {
+		    aLiSmall[i].className = '';
+	     }
+	     aLiSmall[now].className = 'thistitle'
+	     startMove(oUlBig,'left',-(now*aBigLi[0].offsetWidth))
+	  }
+	  var now = 0;
+	  for(var i=0; i<aLiSmall.length; i++)
+	  {
+		  aLiSmall[i].index = i;
+		  aLiSmall[i].onclick = function()
+		  {
+			  now = this.index;
+			  tab();
+		  }
+	 }
+	  oPre.onclick = function()
+	  {
+		  now--
+		  if(now ==-1)
+		  {
+			  now = aBigLi.length;
+		  }
+		   tab();
+	  }
+	   oNext.onclick = function()
+	  {
+		   now++
+		  if(now ==aBigLi.length)
+		  {
+			  now = 0;
+		  }
+		  tab();
+	  }
+	  var timer = setInterval(oNext.onclick,3000) //滚动间隔时间设置
+	  oDiv.onmouseover = function()
+	  {
+		  clearInterval(timer)
+	  }
+	   oDiv.onmouseout = function()
+	  {
+		  timer = setInterval(oNext.onclick,3000) //滚动间隔时间设置
+	  }
+  }
+  </script>
+    <ul class="some-info">
+      <li>
+        <img src="picture/xgou.png">安全稳定
+        <ul>
+          <li>多项加密</li>
+          <li>多项绑定</li>
+          <li>服务7×24小时</li>
+        </ul>
+     </li>
+     <li>
+        <img src="picture/xgou.png">玩法多样
+        <ul>
+          <li>常规比赛</li>
+          <li>合作比赛</li>
+          <li>模拟交易</li>
+        </ul>
+     </li>
+     <li>
+        <img src="picture/xgou.png">数据同步
+        <ul>
+          <li>四网信息无缝同步</li>
+          <li>各项信息随时查看</li>
+          <li>随时参与</li>
+        </ul>
+     </li>
+    </ul>
+  </div>
+  <div class="login-right pull-right">
+    <div class="login-title">
+      用户登陆<img src="style/images/hya.png">
+    </div>
+    <form>
+     <table border="0" cellspacing="0" width="270" class="login-table">
+     <tr>
+	 <td>
+      <input type="text" class="login-name" placeholder="请输入您的手机号/邮箱号">
+     </td>
+    </tr>
+     <tr>
+	 <td>
+      <input type="text" class="login-pwd" placeholder="密码为6-16位数字和字母组成">
+     </td>
+     <tr>
+     <td>
+      <span style="padding-right:25px;"><input type="checkbox">记住账号</span>
+      <span style="padding-right:25px;"><input type="checkbox">自动登陆</span>
+      <a href="找回密码1.html" style="color:#227dbc;">忘记密码？</a>
+     </td>
+     </tr>
+    </tr>
+    </table>
+    <input type="submit" value="登&nbsp;陆" class="login-submit">
+    </form>
+    <p class="hmzh">
+     还没有****炒股比赛网帐号？<a class="lmzc" href="register.html" >立马注册</a>
+    </p>
+    <div class="other-fs">
+      <p>您也可以用以下方式登录：</p>
+      <p><a href="#"><img src="style/images/wbdl.png"></a><span style="padding-left:20px;"></span><a href="#"><img src="style/images/qqdl.png"></a></p>
+    </div>
+  </div>   
+  <div class="clearfix"></div>
+  </div> 
+</div>
+	<!-- InstanceEndEditable --> 
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+       <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+      </div>
+      <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+      <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div> 
+	  <script>
+	   $(function(){
+		 $(".swx").hover(function(){
+		   $(".wxshow").css("display","block");	 
+		 },function(){
+		   $(".wxshow").css("display","none");	  
+		});  
+		$(".wb").hover(
+		function () {
+			$(".wbshow").css("display","block");
+		},
+		function () {
+			$(".wbshow").css("display","none");
+		}
+	); 
+	   });
+	  </script>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+     
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+      
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+<!-- InstanceEnd --></html>

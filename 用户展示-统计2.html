@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>炒股网</title>
+<meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">
+         <option selected="selected" value="0">其他服务</option>
+         <option value="1">手机</option>
+         <option value="2">邮箱</option>
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<script>
+//放到桌面
+function toDesktop(sUrl,sName)
+{
+try
+{
+var WshShell = new ActiveXObject("WScript.Shell");
+var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+oUrlLink.TargetPath = sUrl;
+oUrlLink.Save();
+}
+catch(e)
+{
+alert("当前IE安全级别不允许操作！请设置后在操作.");
+}
+}
+//收藏
+ function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL);
+        try{
+            window.external.addFavorite(sURL, sTitle);
+        }catch(e) {
+            try{
+                window.sidebar.addPanel(sTitle, sURL, "");
+            }catch (e) {
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }
+        }
+    }
+ //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+               document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+</script>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="../商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+<div class="wraper">
+ <!--top-->
+ <div class="ren-info">
+   <ul class="ren-detail">
+     <li><img src="picture/tou.png"><br>min悦</li>
+     <li>
+       <div class="p_chart fl">
+         <div id="monthyl" style="height:83px; width:83px;"  class="p_chart_img" ></div>
+         <div class="detail"><span class="yl-red">- 75%- </span>
+           <p><span type="profit">15</span><span>笔盈利交易</span></p>
+          </div>
+        </div>
+      </li>
+     <li>
+       <div class="p_chart fl">
+         <div id="monthks" style="height:83px; width:83px;"  class="p_chart_img" ></div>
+         <div class="detail"><span class="ks-green">- 25% -</span>
+           <p><span type="profit">5</span><span>笔盈利交易</span></p>
+          </div>
+        </div>
+      </li>
+     <li>
+       <div class="gszrz">
+         <div class="pull-left gsz">
+           <p style="color:#666666;">156</p>
+           <p>追随者</p>
+          </div>
+         <div class="pull-left jyrz">
+           <p style="color:#666666;">32</p>
+           <p>交易日志</p>
+          </div>
+         <div class="clearfix"></div>
+        </div>
+      </li>
+     <li><a href="#" class="bsxq dy">订阅</a></li>
+     <li><a href="#" class="bsxq gd">跟单</a></li>
+    </ul>
+ </div>
+ <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<script src="style/js/ucharts2.js"></script>
+
+ <!--top-end-->
+ <!--content-->
+ <div id="content-tab">
+        <ul  class="ucinfo_nav clearfix" id="tabchange">
+          <li><a href="#yhgl">用户概览</a></li>
+          <li class="active"><a href="#tjfx">统计分析</a></li>
+          <li><a href="#dqcc">当前持仓</a></li>
+          <li><a href="#dyyx">订阅关系</a></li>
+        </ul>
+        <div class="tab-content" id="user-content">
+          <div class="tab-pane active" id="tjfx">
+          <!--统计分析begin-->
+          <div style="min-height:300px;">
+           <div class="time-xz">
+              <div class="pull-left">收益率</div>
+              <ul id="shouyi-lv" class="pull-right">
+               <li class="active"><a href="#ysyl">30天</a></li>
+               <li><a href="#bnsyl">半年</a></li>
+               <li><a href="#ynsyl">一年</a></li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+             <div  class="tab-content" id="time-select2">
+             <div class="tab-pane active" id="ysyl">
+              <div id="syzdsy2" style="height:300px; width:960px;" class="fl syzdsy" ></div>
+             </div>
+             <div class="tab-pane" id="bnsyl">
+             半年
+             </div>
+             <div class="tab-pane" id="ynsyl">
+             一年
+             </div>
+           </div>
+           </div>
+          <div class="bar-title">历史统计</div>
+          <ul class="history-tj">
+           <li>
+           <div class="p_chart fl">
+            <div id="ls1" style="height:83px; width:100px;"  class="p_chart_img" ></div>
+            <div class="detail"><span class="yl-red">62%</span>
+             <p><span type="profit">42</span><span>笔盈利交易</span></p>
+            </div>
+           </div>
+          </li>
+           <li>
+           <div class="p_chart fl">
+            <div id="ls2" style="height:83px; width:100px;"  class="p_chart_img" ></div>
+            <div class="detail"><span class="ks-green">38%</span>
+             <p><span type="profit">26</span><span>笔盈利交易</span></p>
+            </div>
+           </div>
+          </li>
+          <li>
+           <div class="p_chart fl">
+            <div id="ls3" style="height:83px; width:100px;"  class="p_chart_img" ></div>
+            <div class="detail"><span sclass="yl-red">3.84%</span>
+             <p><span type="profit">68</span><span>笔盈利交易</span></p>
+            </div>
+           </div>
+          </li>
+           </ul>
+           <div id="lstj" style="height:300px; width:960px;"></div>
+           <div class="bar-title">业绩指标</div>
+           <ul class="yj-zb">
+            <li>
+              <ul>
+               <li><p>本月收益率</p><p class="yl-red">13.6%</p></li>
+               <li><p>累计跑赢大盘</p><p class="yl-red">13.6%</p></li>
+               <li><p>本周收益率</p><p class="yl-red">13.6%</p></li>
+               <li><p>年化收益率</p><p class="yl-red">13.6%</p></li>
+              </ul>
+            </li>
+             <li>
+              <ul>
+               <li><p>本月跑赢大盘</p><p class="ks-green">-13.6%</p></li>
+               <li><p>本季收益率</p><p class="ks-green">-0.9%</p></li>
+               <li><p>胜率</p><p class="yl-red">13.6%</p></li>
+               <li><p>最大回撤</p><p class="yl-red">13.6%</p></li>
+              </ul>
+            </li>
+             <li>
+              <ul>
+               <li><p>月均收益率</p><p class="yl-red">13.6%</p></li>
+               <li><p>半年收益率</p><p class="yl-red">13.6%</p></li>
+               <li><p>交易次数</p><p class="jy-black">13.6%</p></li>
+               <li><p>DBR</p><p class="jy-black">0.00%</p></li>
+              </ul>
+            </li>
+            <li id="total-zc">
+              <ul>
+               <li>账户初始资产:<span class="yl-red">20000000</span>元</li>
+               <li>账户资产:<span class="yl-red">4438968.9</span>元</li>
+              </ul>
+            </li>
+           </ul>
+           <ul class="operate">
+            <li>
+             <ul>
+             操作风格:
+              <li>超短线</li>
+             </ul>
+            </li>
+            <li>
+             <ul>
+              投资行业:
+              <li>金融,保险业</li>
+              <li>制造业</li>
+              <li>信息及商业</li>
+              <li>建筑业</li>
+             </ul>
+            </li>
+           </ul>
+<script>
+   $(document).ready(function() {
+	 $.ajax({
+		type : "get",
+		async :false, //同步执行
+		url : "test4.json",
+		data : {},
+		dataType : "json", //返回数据形式为json
+		success : function(result) {
+		if (result) {
+		 $(".yj-zb").empty();
+		 var html="";
+         for(var i=0;i<result.a.length;i++){
+		  html+='<li><ul><li><p>本月收益率</p><p class="yl-red">'+result.a[i].bysyl+'%</p></li> <li><p>累计跑赢大盘</p><p class="yl-red">'
+		  +result.a[i].ljpydp+'%</p></li> <li><p>本周收益率</p><p class="yl-red">'
+		  +result.a[i].bzsyl+'%</p></li> <li><p>年化收益率</p><p class="yl-red">'
+		  +result.a[i].nhsyl+'%</p></li></ul></li> <li><ul><li><p>本月跑赢大盘</p><p class="ks-green">'
+		  +result.a[i].bypydp+'%</p></li> <li><p>本季收益率</p><p class="ks-green">'
+		  +result.a[i].bjsyl+'%</p></li> <li><p>胜率</p><p class="yl-red">'
+		  +result.a[i].sl+'%</p></li> <li><p>最大回撤</p><p class="yl-red">'
+		  +result.a[i].zdhc+'%</p></li></ul></li> <li><ul><li><p>月均收益率</p><p class="yl-red">'
+		  +result.a[i].yjsyl+'%</p></li> <li><p>半年收益率</p><p class="yl-red">'
+		  +result.a[i].bnsyl+'%</p></li> <li><p>交易次数</p><p class="jy-black">'
+		  +result.a[i].jycs+'%</p></li> <li><p>DBR</p><p class="jy-black">'
+		  +result.a[i].dbr+'%</p></li></ul></li> <li id="total-zc"><ul><li>账户初始资产:<span class="yl-red">'
+		  +result.a[i].zhcszc+'</span>元</li> <li>账户资产:<span class="yl-red">'
+		  +result.a[i].zhzc+'</span>元</li></ul></li>';
+		 }
+		 $(".yj-zb").html(html);
+	   }
+	},
+	error : function(errorMsg) {
+		alert("图表请求数据失败啦!");
+	}
+   })
+   });
+</script>
+           <div class="bar-title">月度收益</div>
+           <div id="ydsy" style="height:300px; width:960px;"></div>
+          <!--统计分析end-->
+          </div>
+
+        </div>
+<script>
+  $(function () {
+  $('#tabchange2 a').click(function (e) {
+    e.preventDefault();//阻止a链接的跳转行为
+    $(this).tab('show');//显示当前选中的链接及关联的content
+   })
+  $('#shouyi-detail a').click(function (e) {
+    e.preventDefault();//阻止a链接的跳转行为
+    $(this).tab('show');//显示当前选中的链接及关联的content
+   })
+    $('#shouyi-lv  a').click(function (e) {
+    e.preventDefault();//阻止a链接的跳转行为
+    $(this).tab('show');//显示当前选中的链接及关联的content
+   })
+    $('#dygx  a').click(function (e) {
+    e.preventDefault();//阻止a链接的跳转行为
+    $(this).tab('show');//显示当前选中的链接及关联的content
+   })
+  })
+</script>
+<script src="style/js/ucharts3.js"></script>
+ <!--content-end-->
+</div>
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+       <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+      </div>
+      <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+      <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div>
+	  <script>
+	   $(function(){
+		 $(".swx").hover(function(){
+		   $(".wxshow").css("display","block");
+		 },function(){
+		   $(".wxshow").css("display","none");
+		});
+		$(".wb").hover(
+		function () {
+			$(".wbshow").css("display","block");
+		},
+		function () {
+			$(".wbshow").css("display","none");
+		}
+	);
+	   });
+	  </script>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+</html>

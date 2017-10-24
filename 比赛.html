@@ -1,0 +1,626 @@
+ <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>炒股网</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+    <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <script src="style/js/bootstrap.min.js"></script>
+    <script src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--top-->
+    <div class="top">
+     <div class="wraper">
+         <div class="pull-left">
+           欢迎您来到***炒股比赛网
+         </div>
+         <div class="pull-right">
+           <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+           <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+           <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+           <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+           <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+           <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+           <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+           <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+          <span>
+           <select class="dropdown" style="background:#FFF;">   
+             <option selected="selected" value="0">其他服务</option>  
+             <option value="1">手机</option>  
+             <option value="2">邮箱</option>  
+           </select>
+        </span>
+       </div>
+     </div>
+    </div>
+	<script> 
+    //放到桌面
+    function toDesktop(sUrl,sName)
+    {
+    try
+    {
+    var WshShell = new ActiveXObject("WScript.Shell");
+    var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+    oUrlLink.TargetPath = sUrl; 
+    oUrlLink.Save(); 
+    }
+    catch(e) 
+    {
+    alert("当前IE安全级别不允许操作！请设置后在操作.");
+    }
+    }
+    //收藏
+     function AddFavorite(sURL, sTitle) {
+            sURL = encodeURI(sURL); 
+            try{   
+                window.external.addFavorite(sURL, sTitle);   
+            }catch(e) {   
+                try{   
+                    window.sidebar.addPanel(sTitle, sURL, "");   
+                }catch (e) {   
+                    alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+                }   
+            }
+        }   
+     //设为首页
+        function SetHome(url){
+            if (document.all) {
+                document.body.style.behavior='url(#default#homepage)';
+                   document.body.setHomePage(url);
+            }else{
+                alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+            }
+        }
+    </script>
+    <!--daohang-->
+    <div class="daohang">
+     <div class="wraper daohang-toolbar">
+      <div class="pull-left">
+       <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+      </div>
+      <div class="pull-right">
+        <ul class="daohang-bar">
+             <li><a href="index.html">首页</a></li> 
+             <li><a href="比赛.html">股票比赛</a></li>
+             <li><a href="比赛公告/比赛公告.html">比赛公告</a></li>
+             <li><a href="股票大全/股票大全.html">热点股票</a></li>
+             <li><a href="排行榜/排行榜.html">排行榜</a></li>
+             <li><a href="商城/商城.html">积分商城</a></li>
+             <li><a href="https://www.sbo8.com/">股票学院</a></li>
+        </ul>
+      </div>
+     </div>
+     <div class="clearfix"></div>
+    </div>
+<!--middle-->
+<div class="middle">
+<div class="wraper">
+    <!--比赛公告-->
+    <div class="bsgg">
+    <div class="pull-left bsgg-left">
+      <div>
+        <div class="pull-left bsgg-title">比赛公告</div>
+        <div class="pull-right"><a href="#">更多</a></div>
+        <div class="clearfix"></div>
+      </div>
+      <div>
+       <div class="pull-left">
+         <img src="picture/laba.png" class="laba">
+      </div>
+       <div class="pull-right bsgg-list">
+        <ul>
+          <li><a href="#">【公告】T+1模式暂停预提功<span class="gg-span">04-28</span></a></li>
+          <li><a href="#">【公告】T+1模式暂停预提功<span class="gg-span">04-28</span></a></li>
+          <li><a href="#">【公告】T+1模式暂停预提功<span class="gg-span">04-28</span></a></li>
+          <li><a href="#">【公告】T+1模式暂停预提功<span class="gg-span">04-28</span></a></li>
+        </ul>
+       </div>
+       <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="pull-right bsgg-right">
+      <!---->
+      <!--<div class="home_ad">
+        <div class="picScroll-left">
+        <div class="bd">
+            <ul class="picList da-thumbs" id="da-thumbs">
+                <li>
+                   <div><img src="picture/bs1.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">1</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                <li>
+                   <div><img src="picture/bs2.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">2</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                <li>
+                   <div><img src="picture/bs1.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                 <li>
+                   <div><img src="picture/bs3.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">4</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                 <li>
+                   <div><img src="picture/bs3.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">5</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                 <li>
+                   <div><img src="picture/bs1.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">6</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                <li>
+                   <div><img src="picture/bs2.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">7</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                <li>
+                   <div><img src="picture/bs2.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">8</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+                <li>
+                   <div><img src="picture/bs3.png">
+                     <div class="hover-index">
+                       <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">9</em>期</div>
+                       <div class="pull-left cansai"><a href="#">+比赛详细</a></div>
+                     </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+        </div>-->
+        <script type="text/javascript">
+        $(".home_ad .picScroll-left").slide({
+            mainCell:".bd ul",
+            autoPage:true,
+            effect:"left",
+            autoPlay:true,
+            scroll:3,
+            vis:3,
+        });
+        </script> 
+    </div>
+    <div class="clearfix"></div>
+    </div>
+    <!--炒股比赛大全-->
+    <div class="bsdq">
+      <div class="bsda-title">炒股比赛大全</div>
+      <!---->
+<div class="sortbox">	
+	
+	<div class="siftbox clearfix">
+		<span class="label">已选条件:</span>
+		<div id="condition"></div>
+	</div>
+	<div id="filter">
+    <dl class="clearfix">
+			<dt id="mode">比赛模式：</dt>
+			<dd><div><a data="0">所有</a></div></dd>
+			<dd><div><a data="1">常规比赛</a></div></dd>
+			<dd><div><a data="2">合作比赛</a></div></dd>
+		</dl>
+		<dl class="clearfix">
+			<dt id="state">比赛状态：</dt>
+			<dd><div><a data="0">所有</a></div></dd>
+			<dd><div><a data="1">报名中</a></div></dd>
+			<dd><div><a data="2">比赛中</a></div></dd>
+			<dd><div><a data="3">已结束</a></div></dd>
+		</dl>
+		<dl class="clearfix">
+			<dt id="content">比赛内容：</dt>
+			<dd><div><a data="0">所有</a></div></dd>
+			<dd><div><a data="1">股票下</a></div></dd>
+			<dd><div><a data="2">基金</a></div></dd>
+			<dd><div><a data="3">股指期货</a></div></dd>
+			<dd><div><a data="4">商品期货</a></div></dd>
+		</dl>
+		<dl class="clearfix">
+			<dt id="nature">比赛性质：</dt>
+			<dd><div><a data="0">所有</a></div></dd>
+			<dd><div><a data="1">邀请赛</a></div></dd>
+			<dd><div><a data="2">公开赛</a></div></dd>
+		</dl>
+	</div>
+	
+</div>	
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+        var abc = [];
+        
+        $(function(){
+            
+            //选中filter下的所有a标签，为其添加hover方法，该方法有两个参数，分别是鼠标移上和移开所执行的函数。
+            $("#filter a").hover(function(){
+                $(this).addClass("seling");
+            },function(){
+                $(this).removeClass("seling");
+            });
+        
+            //选中filter下所有的dt标签，并且为dt标签后面的第一个dd标签下的a标签添加样式seled。(感叹jquery的强大)
+            $("#filter dt+dd a").attr("class", "seled"); /*注意：这儿应该是设置(attr)样式，而不是添加样式(addClass)，
+            不然后面通过$("#filter a[class='seled']")访问不到class样式为seled的a标签。*/       
+        
+            //为filter下的所有a标签添加单击事件
+            $("#filter").find("dl").each(function(index, element) {
+                var id=$(this).find("dt").attr("id");
+                $(this).find("a").click(function(){
+                    var linsUrl=$(this).attr("data");
+                    GETURL(id,linsUrl)
+                    $(this).parents("dl").children("dd").each(function(){
+                        $(this).children("div").children("a").removeClass("seled");
+                    });
+                
+                    $(this).attr("class", "seled");
+                    var needhide = $(this);
+                    needhide.parentsUntil("dl").parent().hide();
+                    abc.push(needhide);
+                    var val = $(this).html().replace(/ /g, "kongge");
+                    var condition = '<a onclick=deleteC("'+val+'") class="inbtn pzbtn" rel="'+$(this).html()+'"><span>'+$(this).html()+'</span></a>';
+                    $("#condition").append(condition);
+                })
+            });
+        });
+        
+        var paraArr = window.location.search.replace("?","").split("&");
+        
+        function deleteC(v){
+            if(window.location.href.indexOf('&'+v) > 0){
+                var url = window.location.href.replace("&"+v,"");
+            } else if(window.location.href.indexOf(v+'&') > 0) {
+                var url = window.location.href.replace(v+"&","");
+            } else {
+                var url = window.location.href.replace(v,"");
+            }
+            location.href = url
+        }
+        function GETURL(name,value){
+            var url = '';
+            if(window.location.href.indexOf('?') > 0 && window.location.search.indexOf('?') >= 0){
+                     url = window.location.pathname+window.location.search+"&"+name+"="+value;
+            }else{
+                url = window.location.pathname+"?"+name+"="+value;
+            }
+            location.href = url;
+        }
+        
+        for(var p = 0; p <paraArr.length;p++) {
+            var parent = $("#"+paraArr[p].substring(0,paraArr[p].indexOf("="))+"").parents("dl");
+                parent.hide();
+                abc.push(parent);
+                var val = parent.find("a").eq(paraArr[p].substring(paraArr[p].indexOf("=")+1)).html().replace(/ /g, "kongge");
+                var condition = '<a onclick=deleteC("'+paraArr[p]+'") class="inbtn pzbtn" rel="'+val+'"><span>'+val+'</span></a>';
+                $("#condition").append(condition);
+        }
+        </script>
+         <!--报名信息-->
+          <div class="bmxx">
+           <div class="pull-left">
+             <ul class="bmxz">
+               <li class="bmrs"><a href="#">报名人数</a></li>
+               <li><a href="#">报名费用</a></li>
+               <li><a href="#">奖励</a></li>
+               <li><a href="#">热门比赛</a></li>
+               <li><a href="#">报名时间</a></li>
+             </ul>
+           </div>
+           <div class="pull-right gdsbs">
+            <span>共 2082个比赛</span>
+            <span style="padding:0 15px;"><em style="color:#ff4401">1</em>/156</span>
+            <span class="backnext"><a href="#"> < </a></span><span class="backnext backnext2"><a href="#"> > </a></span>
+           </div>
+           <div class="clearfix"></div>
+        </div>
+        <!--比赛list-->
+        <ul class="bs-list">
+          <li>
+            <div class="pull-left tzxtp">
+             <img src="picture/bs1.png" />
+             <div class="hover-index">
+              <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                <div class="pull-right"><a href="#">+比赛详细</a></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="pull-right tzsxx">
+              <div class="cdtzs">
+               <div class="pull-left cdtzs-title">“T+1”超短挑战赛 第三期</div>
+               <div class="pull-right">
+               <span><a href="#" class="bs-style">常规赛</a></span>
+               <span><a href="#" class="bs-style">报名中</a></span>
+               <span><a href="#" class="bs-style">股票</a></span>
+               <span><a href="#" class="bs-style">邀请赛</a></span>
+               <span><img src="picture/hot.png"></span>
+               </div>
+               <div class="clearfix"></div>
+              </div>
+              <div class="cdtzs-info">
+               <div class="pull-left cdtzs-info-left">
+                <p>主办方：<em class="juhuang">股神网训练赛</em>最高奖励：<em class="juhuang">10000积分</em>报名人数：<em class="juhuang">20000人</em>报名费用：<em class="juhuang">100 积分</em></p>
+                <p>报名时间：<em class="bmbssj">2015-04-17 - 2015-04-19</em>比赛时间：<em class="bmbssj">2015-04-20 - 2015-04-24</em></p> 
+                <p>本次挑战赛由资本魔方倾情举办，历时一个月，让你天天体验“T+1”T到爆的魔鬼规则。与实盘相近的系统，锻炼你的超短线实战能力，更有话费大礼等你来取！（严格遵循“T+1”操作原则，……</p>
+               </div>
+               <div class="pull-right cdtzs-info-right"><a href="比赛详情.html" class="joinGame">比赛详细</a></div>
+               <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="pull-left tzxtp">
+             <img src="picture/bs2.png" />
+             <div class="hover-index">
+              <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                <div class="pull-right"><a href="#">+比赛详细</a></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="pull-right tzsxx">
+              <div class="cdtzs">
+               <div class="pull-left cdtzs-title">“T+1”超短挑战赛 第三期</div>
+               <div class="pull-right">
+               <span><a href="#" class="bs-style">常规赛</a></span>
+               <span><a href="#" class="bs-style">报名中</a></span>
+               <span><a href="#" class="bs-style">股票</a></span>
+               <span><a href="#" class="bs-style">邀请赛</a></span>
+               <span><img src="picture/hot.png"></span>
+               </div>
+               <div class="clearfix"></div>
+              </div>
+              <div class="cdtzs-info">
+               <div class="pull-left cdtzs-info-left">
+                <p>主办方：<em class="juhuang">股神网训练赛</em>最高奖励：<em class="juhuang">10000积分</em>报名人数：<em class="juhuang">20000人</em>报名费用：<em class="juhuang">100 积分</em></p>
+                <p>报名时间：<em class="bmbssj">2015-04-17 - 2015-04-19</em>比赛时间：<em class="bmbssj">2015-04-20 - 2015-04-24</em></p> 
+                <p>本次挑战赛由资本魔方倾情举办，历时一个月，让你天天体验“T+1”T到爆的魔鬼规则。与实盘相近的系统，锻炼你的超短线实战能力，更有话费大礼等你来取！（严格遵循“T+1”操作原则，……</p>
+               </div>
+               <div class="pull-right cdtzs-info-right"><a href="比赛详情.html" class="joinGame">比赛详细</a></div>
+               <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="pull-left tzxtp">
+             <img src="picture/bs3.png" />
+             <div class="hover-index">
+              <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                <div class="pull-right"><a href="#">+比赛详细</a></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="pull-right tzsxx">
+              <div class="cdtzs">
+               <div class="pull-left cdtzs-title">“T+1”超短挑战赛 第三期</div>
+               <div class="pull-right">
+               <span><a href="#" class="bs-style">常规赛</a></span>
+               <span><a href="#" class="bs-style">报名中</a></span>
+               <span><a href="#" class="bs-style">股票</a></span>
+               <span><a href="#" class="bs-style">邀请赛</a></span>
+               <span><img src="picture/hot.png"></span>
+               </div>
+               <div class="clearfix"></div>
+              </div>
+              <div class="cdtzs-info">
+               <div class="pull-left cdtzs-info-left">
+                <p>主办方：<em class="juhuang">股神网训练赛</em>最高奖励：<em class="juhuang">10000积分</em>报名人数：<em class="juhuang">20000人</em>报名费用：<em class="juhuang">100 积分</em></p>
+                <p>报名时间：<em class="bmbssj">2015-04-17 - 2015-04-19</em>比赛时间：<em class="bmbssj">2015-04-20 - 2015-04-24</em></p> 
+                <p>本次挑战赛由资本魔方倾情举办，历时一个月，让你天天体验“T+1”T到爆的魔鬼规则。与实盘相近的系统，锻炼你的超短线实战能力，更有话费大礼等你来取！（严格遵循“T+1”操作原则，……</p>
+               </div>
+               <div class="pull-right cdtzs-info-right"><a href="比赛详情.html" class="joinGame">比赛详细</a></div>
+               <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="pull-left tzxtp">
+             <img src="picture/bs1.png" />
+             <div class="hover-index">
+              <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                <div class="pull-right"><a href="#">+比赛详细</a></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="pull-right tzsxx">
+              <div class="cdtzs">
+               <div class="pull-left cdtzs-title">“T+1”超短挑战赛 第三期</div>
+               <div class="pull-right">
+               <span><a href="#" class="bs-style">常规赛</a></span>
+               <span><a href="#" class="bs-style">报名中</a></span>
+               <span><a href="#" class="bs-style">股票</a></span>
+               <span><a href="#" class="bs-style">邀请赛</a></span>
+               <span><img src="picture/hot.png"></span>
+               </div>
+               <div class="clearfix"></div>
+              </div>
+              <div class="cdtzs-info">
+               <div class="pull-left cdtzs-info-left">
+                <p>主办方：<em class="juhuang">股神网训练赛</em>最高奖励：<em class="juhuang">10000积分</em>报名人数：<em class="juhuang">20000人</em>报名费用：<em class="juhuang">100 积分</em></p>
+                <p>报名时间：<em class="bmbssj">2015-04-17 - 2015-04-19</em>比赛时间：<em class="bmbssj">2015-04-20 - 2015-04-24</em></p> 
+                <p>本次挑战赛由资本魔方倾情举办，历时一个月，让你天天体验“T+1”T到爆的魔鬼规则。与实盘相近的系统，锻炼你的超短线实战能力，更有话费大礼等你来取！（严格遵循“T+1”操作原则，……</p>
+               </div>
+               <div class="pull-right cdtzs-info-right"><a href="比赛详情.html" class="joinGame">比赛详细</a></div>
+               <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="pull-left tzxtp">
+             <img src="picture/bs2.png" />
+             <div class="hover-index">
+              <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                <div class="pull-right"><a href="#">+比赛详细</a></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="pull-right tzsxx">
+              <div class="cdtzs">
+               <div class="pull-left cdtzs-title">“T+1”超短挑战赛 第三期</div>
+               <div class="pull-right">
+               <span><a href="#" class="bs-style">常规赛</a></span>
+               <span><a href="#" class="bs-style">报名中</a></span>
+               <span><a href="#" class="bs-style">股票</a></span>
+               <span><a href="#" class="bs-style">邀请赛</a></span>
+               <span><img src="picture/hot.png"></span>
+               </div>
+               <div class="clearfix"></div>
+              </div>
+              <div class="cdtzs-info">
+               <div class="pull-left cdtzs-info-left">
+                <p>主办方：<em class="juhuang">股神网训练赛</em>最高奖励：<em class="juhuang">10000积分</em>报名人数：<em class="juhuang">20000人</em>报名费用：<em class="juhuang">100 积分</em></p>
+                <p>报名时间：<em class="bmbssj">2015-04-17 - 2015-04-19</em>比赛时间：<em class="bmbssj">2015-04-20 - 2015-04-24</em></p> 
+                <p>本次挑战赛由资本魔方倾情举办，历时一个月，让你天天体验“T+1”T到爆的魔鬼规则。与实盘相近的系统，锻炼你的超短线实战能力，更有话费大礼等你来取！（严格遵循“T+1”操作原则，……</p>
+               </div>
+               <div class="pull-right cdtzs-info-right"><a href="比赛详情.html" class="joinGame">比赛详细</a></div>
+               <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+          <li>
+            <div class="pull-left tzxtp">
+             <img src="picture/bs3.png" />
+             <div class="hover-index">
+              <div class="pull-left dsq">第<em style="font-size:20px;font-weight:bold;">3</em>期</div>
+                <div class="pull-right"><a href="#">+比赛详细</a></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="pull-right tzsxx">
+              <div class="cdtzs">
+               <div class="pull-left cdtzs-title">“T+1”超短挑战赛 第三期</div>
+               <div class="pull-right">
+               <span><a href="#" class="bs-style">常规赛</a></span>
+               <span><a href="#" class="bs-style">报名中</a></span>
+               <span><a href="#" class="bs-style">股票</a></span>
+               <span><a href="#" class="bs-style">邀请赛</a></span>
+               <span><img src="picture/hot.png"></span>
+               </div>
+               <div class="clearfix"></div>
+              </div>
+              <div class="cdtzs-info">
+               <div class="pull-left cdtzs-info-left">
+                <p>主办方：<em class="juhuang">股神网训练赛</em>最高奖励：<em class="juhuang">10000积分</em>报名人数：<em class="juhuang">20000人</em>报名费用：<em class="juhuang">100 积分</em></p>
+                <p>报名时间：<em class="bmbssj">2015-04-17 - 2015-04-19</em>比赛时间：<em class="bmbssj">2015-04-20 - 2015-04-24</em></p> 
+                <p>本次挑战赛由资本魔方倾情举办，历时一个月，让你天天体验“T+1”T到爆的魔鬼规则。与实盘相近的系统，锻炼你的超短线实战能力，更有话费大礼等你来取！（严格遵循“T+1”操作原则，……</p>
+               </div>
+               <div class="pull-right cdtzs-info-right"><a href="比赛详情.html" class="joinGame">比赛详细</a></div>
+               <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+        </ul>
+         <!--page-->
+            <div id="pages" class="pages pages2"><span class="pages_page"><a href="javascript:;" class="pages_lt pages_lt_disabled pages_disabled" page="" title="上一页">&nbsp;</a><a href="javascript:;" class="pages_num pages_curr" page="1" title="">1</a><a href="javascript:;" class="pages_num" page="2" title="">2</a><a href="javascript:;" class="pages_num" page="3" title="">3</a><a href="javascript:;" class="pages_num" page="4" title="">4</a><a href="javascript:;" class="pages_num" page="5" title="">5</a><a href="javascript:;" class="pages_rt" page="" title="下一页">&nbsp;</a></span><span class="pages_search"><span>共<code>156</code>页，到第
+              <input type="text" class="pages_txt">
+              页</span><a href="javascript:;" class="pages_smt">确定</a></span></div>
+            <!--page-->
+    
+        <!--炒股比赛大全end-->
+       </div>
+    </div>
+    <script type="text/javascript" src="style/js/ajaxall.js"></script>
+    </div>
+    <!--footer-->
+    <div class="footer">
+      <div class="wraper">
+         <div class="foot-about">
+         <ul class="clearfix about-link">
+          <li><a href="#">关于我们</a>|</li>
+          <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+          </ul>
+          <div class="clearfix about-us">
+           <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+           <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+          </div>
+          <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+          <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div> 
+          <script>
+           $(function(){
+             $(".swx").hover(function(){
+               $(".wxshow").css("display","block");	 
+             },function(){
+               $(".wxshow").css("display","none");	  
+            });  
+            $(".wb").hover(
+            function () {
+                $(".wbshow").css("display","block");
+            },
+            function () {
+                $(".wbshow").css("display","none");
+            }
+        ); 
+           });
+          </script>
+          <div class="about-kefu">
+            <em>客服热线（工作时间 9:00~18:00）</em>
+            <strong>888-888-8888</strong>
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+            </div>
+          </div>
+         
+          <hr class="footer_line" />
+          <div class="foot-safelink">
+          <a href="#"><img src="style/images/cxwz.png" /></a>
+          <a href="#"><img src="style/images/360.png" /></a>
+          <a href="#"><img src="style/images/aqyz.png" /></a>
+          <a href="#"><img src="style/images/kxwz.png" /></a>
+          <a href="#"><img src="style/images/qyzs.png" /></a>
+          </div>
+          
+        <p>
+        Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+    <br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+        </p>
+       </div>
+      </div>
+</body>
+</html>

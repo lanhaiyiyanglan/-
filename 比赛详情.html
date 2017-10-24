@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>炒股网</title>
+    <!-- InstanceEndEditable -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">   
+         <option selected="selected" value="0">其他服务</option>  
+         <option value="1">手机</option>  
+         <option value="2">邮箱</option>  
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<script> 
+//放到桌面
+function toDesktop(sUrl,sName)
+{
+try
+{
+var WshShell = new ActiveXObject("WScript.Shell");
+var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+oUrlLink.TargetPath = sUrl; 
+oUrlLink.Save(); 
+}
+catch(e) 
+{
+alert("当前IE安全级别不允许操作！请设置后在操作.");
+}
+}
+//收藏
+ function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }   
+ //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+               document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+</script>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="../商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+    <!-- InstanceBeginEditable name="EditRegion4" -->
+<div class="wraper">
+  <div class="banner">
+    <img src="picture/gaoshou.png">
+  </div>   
+  <!--炒股比赛大全-->
+  <div class="cgbsdq">
+    <div class="abc1">炒股比赛大全 ><em style="font-size:15px;font-weight:bold;color:#c3212d;"> “T+1”超短挑战赛 第三期</em></div>
+    <div class="cgbsdq-content">
+      <div class="base">
+        <div class="pull-left base-info">
+          <div class="base-info-title"><em style="padding:8px 20px;color:#FFF;font-size:15px;font-weight:bold;background:#ff4401;overflow:hidden;">基本信息</em></div>
+          <div class="info-detail">
+            <ul>
+              <li>
+               <ul class="lula">
+                <li>报名人数：20000人  </li>
+                <li>比赛内容： 股票   </li>
+                <li>报名时间：2015-04-17 - 04-19</li>
+               </ul>
+              </li>
+               <li>
+               <ul class="lula">
+                <li>报名费用：100 积分   </li>
+                <li>比赛性质：公开赛  </li>
+                <li>比赛时间：2015-04-20 - 04-24</li>
+               </ul>
+              </li>
+               <li>
+               <ul class="lula">
+                <li>比赛模式：合作比赛 </li>
+                <li>起始资金：1000000万 </li>
+               </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pull-right some-method">
+           <div class="pull-left">
+             <p>
+             <span><a href="#" class="bsxq bsxq1" target="_blank">登陆</a></span>
+             <span style="padding-left:7px;"></span>
+             <span><a href="#" class="bsxq bsxq2" target="_blank">注册</a></span>
+             </p>
+             <p style="margin-top:10px;"><a href="#" class="bsxq bsxq3" target="_blank">马上参与</a></p>
+           </div>
+           <div class="pull-right line2">
+            <p>和小伙伴分享比赛：</p>
+            <ul class="share">
+             <li>
+              <ul>
+               <li><a href="#"><img src="style/images/weibo.png"></a></li>
+               <li>微博</li>
+              </ul>
+             </li>
+             <li>
+              <ul>
+               <li><a href="#"><img src="style/images/qqhao.png"></a></li>
+               <li>QQ</li>
+              </ul>
+             </li>
+             <li>
+              <ul>
+               <li><a href="#"><img src="style/images/weixin.png"></a></li>
+               <li>微信</li>
+              </ul>
+             </li>
+            </ul>
+           </div>
+           <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <!---->
+      <div class="common-bar">
+      比赛介绍
+      </div>
+      <div class="js-detail">
+       <p class="huhu">浙江财经大学模拟证券投资竞赛由浙江财经大学金融学院金融学会创办于1997年，至今已举办17年，2006年被评为浙江财经大学校级精品活动，现为浙江财经大学的品牌文化。由于其历史悠久、规模庞大、成绩显著，受到了社会各界的广泛关注与各大媒体的争相报道，社会影响力不断扩大。该比赛以“展现当代大学生精神风貌和知识智慧，培养科学投资理财观念”为宗旨，不仅有助于同学们深入了解证券市场，将理论联系实际，也有助于培养参赛者的创新意识、投资意识和风险意识。</p>
+       <p class="huhu">本次比赛共邀请了浙江大学、浙江财经大学东方学院、浙江理工大学、杭州电子科技大学、中国计量学院、浙江金融职业学院六所浙江省高校学生一同参赛。</p>
+      </div>
+       <div class="common-bar">
+      奖品设置
+      </div>
+      <ul class="jiangping">
+       <li>
+           <ul>
+                <img src="http://7fvi9e.com1.z0.glb.clouddn.com//20150825113448" style="height: 167px; width: 167px; float:left; margin-right: 10px;">
+                <li>中国股神一等奖</li>
+                <li>月榜奖</li>
+                <li>第1名</li>
+                <li>奖金2000元</li>
+            </ul>
+       </li>
+       <li>
+           <ul>
+                <img src="http://7fvi9e.com1.z0.glb.clouddn.com//20150825113448" style="height: 167px; width: 167px; float:left; margin-right: 10px;">
+                <li>中国股神一等奖</li>
+                <li>月榜奖</li>
+                <li>第1名</li>
+                <li>奖金2000元</li>
+            </ul>
+       </li>
+        <li>
+           <ul>
+                <img src="http://7fvi9e.com1.z0.glb.clouddn.com//20150825113448" style="height: 167px; width: 167px; float:left; margin-right: 10px;">
+                <li>中国股神一等奖</li>
+                <li>月榜奖</li>
+                <li>第1名</li>
+                <li>奖金2000元</li>
+            </ul>
+       </li>
+        <li>
+           <ul>
+                <img src="http://7fvi9e.com1.z0.glb.clouddn.com//20150825113448" style="height: 167px; width: 167px; float:left; margin-right: 10px;">
+                <li>中国股神一等奖</li>
+                <li>月榜奖</li>
+                <li>第1名</li>
+                <li>奖金2000元</li>
+            </ul>
+       </li>
+        <li>
+           <ul>
+                <img src="http://7fvi9e.com1.z0.glb.clouddn.com//20150825113448" style="height: 167px; width: 167px; float:left; margin-right: 10px;">
+                <li>中国股神一等奖</li>
+                <li>月榜奖</li>
+                <li>第1名</li>
+                <li>奖金2000元</li>
+            </ul>
+       </li>
+        <li>
+           <ul>
+                <img src="http://7fvi9e.com1.z0.glb.clouddn.com//20150825113448" style="height: 167px; width: 167px; float:left; margin-right: 10px;">
+                <li>中国股神一等奖</li>
+                <li>月榜奖</li>
+                <li>第1名</li>
+                <li>奖金2000元</li>
+            </ul>
+       </li>
+      </ul>
+      <!---->
+       <div class="common-bar">
+      比赛规则
+      </div>
+      <div class="rule-detail">
+       <p><em class="special-tt">① 交易品种：</em>交易品种限于深沪A股、创业板股票。上市首日的新股、权证、不设涨跌幅限制的股票(如增发等)禁止委托和交易</p>
+       <p><em class="special-tt">② 交易类型：</em>支持： 普通买卖交易、分红（派息、送股、转增股）；不支持：新股申购、增发申购、配股等；</p>
+       <p><em class="special-tt">③ 委托时间：</em>每个交易日里， 15:01-16:00不能委托，其余时间都可以委托；非交易时间的委托在下一个交易时间生效;</p>
+       <p><em class="special-tt">④ 交易时间：</em>虚拟盘交易时间与交易所规定的交易时间相同。</p>
+       <p><em class="special-tt">⑤ 成交规则：</em></p>
+       <p>成交价格：按照交易所公布的最新成交价撮合</p>
+       <p>买入时：如果最新成交价等于委托价，按照委托价成交，如果最新价小于委托价，按照最新价撮合成交；</p>
+       <p>卖出时：如果最新成交价等于委托价，按照委托价成交，如果最新价高于委托价，按照最新价撮合成交。</p>
+       <p>T+1规则：当天买入的股票不能当天卖出，要在下一个交易日才能卖出。</p>
+       <p style="color:#cd1b1b;">★成交规则友情提示★：本网站模拟炒股具备扫单功能，本网站建议您，打高价格委托买入或打低价格委托卖出，将非常有助于提高您的委托成交速度。</p>
+       <p><em class="special-tt">⑥ 交易费用：</em></p>
+       <p>印花税比例     佣金比例     过户费比例</p>
+       <p>上海A股       0.1%     0.2%     0.375‰</p>
+       <p>深圳A股     0.1%     0.2%     0</p>
+       <p>创业板     0.1%     0.2%     0</p>
+       <p style="color:#cd1b1b;">注意：</p>
+       <p style="color:#cd1b1b;">1、印花税=成交金额×印花税比例；卖出时才收取；</p>
+       <p style="color:#cd1b1b;">2、佣金=成交金额×佣金比例，起点为五元；买入卖出均收取；</p>
+      </div>
+      <!---->
+      <div class="common-bar">
+      比赛排名Top10
+      </div>
+      <table  border="1" bordercolor="#cccccc" class="top-dec">
+        <tr>
+			<th width="45px">排名</th>
+			<th width="120px">用户名</th>
+			<th width="95px">总盈利率 </th>
+            <th width="95px">月盈利率</th>
+            <th width="95px">周盈利率</th>
+            <th width="95px">日盈利率</th>
+            <th width="110px">总资产</th>
+            <th width="220px">最新操作</th>
+			<th width="85px">与TA交流</th>
+		</tr>
+		<tr align="center">
+			<td class="number">1</td>
+            <td>枯叶不败</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">2</td>
+            <td>系大大</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">3</td>
+            <td>周银燕</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">4</td>
+            <td>雪之花</td>
+           <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">5</td>
+            <td>枯叶不败</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">6</td>
+            <td>系大大</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">7</td>
+            <td>枯叶不败</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">8</td>
+            <td>系大大</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">9</td>
+            <td>枯叶不败</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+        <tr align="center">
+			<td class="number">10</td>
+            <td>系大大</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+            <td class="zhang">+213.15%</td>
+			<td class="zhang">+213.15%</td>
+            <td>3387895.31</td>
+            <td><em class="zhang">买入</em> 601***<em class="zhang"><a href="#">点击查看</a></em><br><em class="hui">2015-05-04 09:30:16</em></td>
+            <td class="wt"><a href="#">问他</a></td>
+		</tr>
+   </table>
+   <!--比赛参与者-->
+    <div class="common-bar">
+      比赛参与者
+    </div>
+    <ul class="join-person">
+     <li>
+      <ul class="person">
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+           <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+            <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+           <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+           <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+      </ul>
+      </li>
+      <li>
+      <ul class="person">
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+           <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+           <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+       <li>
+        <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+           <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+       <li>
+         <div class="person-js">
+          <div class="pull-left"><img src="picture/man.png"></div>
+          <div class="pull-right">
+            <p class="dss">敌杀死</p>
+           <p class="cishu">比赛次数：<em class="zhang">42</em></p>
+           <p class="cishu">追随者：<em class="zhang">358</em></p>
+          </div>
+          <div class="clearfix"></div>
+          <p>投资行业：制造  交通</p>
+          <p>操作风格：短线</p>
+         </div>
+       </li>
+      </ul>
+     </li>  
+    </ul>
+    <!--官方机构-->
+     <div class="common-bar">
+      官方机构
+    </div>
+    <ul class="paterner">
+     <li>
+      <ul>主办单位：
+       <li><a href="#"><img src="picture/pt1.png"></a></li>
+       <li><a href="#"><img src="picture/pt2.png"></a></li>
+       <li><a href="#"><img src="picture/pt3.png"></a></li>
+       <li><a href="#"><img src="picture/pt4.png"></a></li>
+       <li><a href="#"><img src="picture/pt5.png"></a></li>
+      </ul>
+     </li>
+      <li>
+      <ul>合作券商：
+       <li><a href="#"><img src="picture/pt6.png"></a></li>
+       <li><a href="#"><img src="picture/pt7.png"></a></li>
+       <li><a href="#"><img src="picture/pt8.png"></a></li>
+       <li><a href="#"><img src="picture/pt9.png"></a></li>
+       <li><a href="#"><img src="picture/pt10.png"></a></li>
+      </ul>
+     </li>
+    </ul>
+    </div>
+  </div>
+</div>
+	<!-- InstanceEndEditable --> 
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+       <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+      </div>
+      <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+      <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div> 
+	  <script>
+	   $(function(){
+		 $(".swx").hover(function(){
+		   $(".wxshow").css("display","block");	 
+		 },function(){
+		   $(".wxshow").css("display","none");	  
+		});  
+		$(".wb").hover(
+		function () {
+			$(".wbshow").css("display","block");
+		},
+		function () {
+			$(".wbshow").css("display","none");
+		}
+	); 
+	   });
+	  </script>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+     
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+      
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+<!-- InstanceEnd --></html>

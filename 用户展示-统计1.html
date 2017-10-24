@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>炒股网</title>
+<meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="javascript:void(0);" id="LOGIN" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="javascript:void(0);" id="register">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="SetHome(window.location)">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onClick="toDesktop('window.location','炒股网')">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a onclick="AddFavorite(window.location,document.title)">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">   
+         <option selected="selected" value="0">其他服务</option>  
+         <option value="1">手机</option>  
+         <option value="2">邮箱</option>  
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<script> 
+//放到桌面
+function toDesktop(sUrl,sName)
+{
+try
+{
+var WshShell = new ActiveXObject("WScript.Shell");
+var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "//" + sName + ".url");
+oUrlLink.TargetPath = sUrl; 
+oUrlLink.Save(); 
+}
+catch(e) 
+{
+alert("当前IE安全级别不允许操作！请设置后在操作.");
+}
+}
+//收藏
+ function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);   
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        }
+    }   
+ //设为首页
+    function SetHome(url){
+        if (document.all) {
+            document.body.style.behavior='url(#default#homepage)';
+               document.body.setHomePage(url);
+        }else{
+            alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");
+        }
+    }
+</script>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="../商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+<div class="wraper">
+ <!--top-->
+ <div class="ren-info">
+   <ul class="ren-detail">
+     <li><img src="picture/tou.png"><br>min悦</li>
+     <li>
+       <div class="p_chart fl">
+         <div id="monthyl" style="height:83px; width:83px;"  class="p_chart_img" ></div>
+         <div class="detail"><span class="yl-red">- 75%- </span>
+           <p><span type="profit">15</span><span>笔盈利交易</span></p>
+          </div>
+        </div>
+      </li>
+     <li>
+       <div class="p_chart fl">
+         <div id="monthks" style="height:83px; width:83px;"  class="p_chart_img" ></div>
+         <div class="detail"><span class="ks-green">- 25% -</span>
+           <p><span type="profit">5</span><span>笔盈利交易</span></p>
+          </div>
+        </div>
+      </li>
+     <li>
+       <div class="gszrz">
+         <div class="pull-left gsz">
+           <p style="color:#666666;">156</p>
+           <p>追随者</p>
+          </div>
+         <div class="pull-left jyrz">
+           <p style="color:#666666;">32</p>
+           <p>交易日志</p>
+          </div>
+         <div class="clearfix"></div>
+        </div>
+      </li>
+     <li><a href="#" class="bsxq dy">订阅</a></li>
+     <li><a href="#" class="bsxq gd">跟单</a></li>
+    </ul>
+ </div>
+ <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script> 
+<script src="style/js/ucharts2.js"></script>
+
+ <!--top-end-->
+ <!--content-->
+ <div id="content-tab">
+        <ul  class="ucinfo_nav clearfix" id="tabchange">
+          <li class="active"><a href="#yhgl">用户概览</a></li>
+          <li><a href="#tjfx">统计分析</a></li>
+          <li><a href="#dqcc">当前持仓</a></li>
+          <li><a href="#dyyx">订阅关系</a></li>
+        </ul>
+        <div class="tab-content" id="user-content">
+          <div class="tab-pane active" id="yhgl">
+            <!--用户概览begin--> 
+            <!--历史个人操作收益-->
+            <div class="time-xz">
+              <div class="pull-left">历史个人操作收益</div>
+              <ul id="shouyi-detail" class="pull-right">
+               <li class="active"><a href="#yue">30天</a></li>
+               <li><a href="#bannian">半年</a></li>
+               <li><a href="#yinian">一年</a></li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <!--选择时间间隔-->
+             <div  class="tab-content" id="time-select">
+             <div class="tab-pane active" id="yue">
+              <!--30begin-->
+                <div class="pull-left">
+                  <div>
+                   <div id="amonth" style="height:83px; width:83px;"  class="p_chart_img pull-left" ></div>
+                   <div class="pull-right" style="padding-left:20px;">
+                    <p style="color:#a9a9a9;font-size:14px;line-height:25px;">最近30天收益率</p>
+                    <p class="yl-red">- 58.54%- </p>
+                    <p>15笔盈利交易,占总交易的75%</p>
+                   </div>
+                   <div class="clearfix"></div>
+                  </div>
+                  <div class="danger">
+                    <p style="color:#ff7e00;font-size:14px;font-weight:bold;">风险度：中</p>
+                    <ul class="danger-info">
+                     <li>
+                      <ul>
+                        <li class="sp-da">61.40%</li>
+                        <li>最大盈利</li>
+                      </ul>
+                     </li>
+                     <li>
+                      <ul>
+                        <li class="sp-da">-8.46%</li>
+                        <li>最大亏损</li>
+                      </ul>
+                     </li>
+                     <li>
+                      <ul>
+                        <li class="sp-da">32</li>
+                        <li>已完成交易数</li>
+                      </ul>
+                     </li>
+                    </ul>
+                    <p style="color:#999999;font-size:12px;line-height:40px;">提示：历史表现不代表未来收益</p>
+                  </div>
+                </div>
+                <div class="pull-right">
+                 <div id="syzdsy" style="height:300px; width:580px;" class="fl syzdsy" ></div>
+                </div>
+                <div class="clearfix"></div>
+              <!--30天end-->
+             </div>
+             <div class="tab-pane" id="bannian">
+            半年
+             </div>
+             <div class="tab-pane" id="yinian">
+            一年
+             </div>
+           </div>
+            <!--近期比赛-->
+            <div class="bar-title">近期比赛</div>
+            <ul class="recent-game">
+             <div class="bs-title">全国高手民间炒股比赛</div>
+             <li>
+              <div class="game-info">
+                <div class="pull-left">
+                <div class="syl-pm">
+                 <div class="pull-left"><em class="syl">95.32%</em><br>收益率</div>
+                 <div class="pull-right"><em class="pm">95.32%</em><br>排名</div>
+                 <div class="clearfix"></div>
+                </div>
+                </div>
+                <div class="pull-left">
+                 <ul class="zbf">
+                  <li>
+                   <ul>
+                     <li>主办方：新浪财经</li>
+                     <li>投资品种：A股</li>
+                     <li>报名时间：2015-03-01 至 2015-06-26</li>
+                     <li>比赛时间: 2015-03-27 至 2015-06-26</li>
+                   </ul>
+                  </li>
+                  <li>
+                    <ul>
+                     <li>比赛范围：公开赛</li>
+                     <li>比赛状态：<em class="zhang">进行中</em></li>
+                     <li>比赛人数：106392人</li>
+                    </ul>
+                  </li>
+                  <li><a href="#" class="chakan">查看</a></li>
+                 </ul>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+             </li>
+              <div class="bs-title">全国高手民间炒股比赛</div>
+             <li>
+              <div class="game-info">
+                <div class="pull-left">
+                <div class="syl-pm">
+                 <div class="pull-left"><em class="syl">95.32%</em><br>收益率</div>
+                 <div class="pull-right"><em class="pm">95.32%</em><br>排名</div>
+                 <div class="clearfix"></div>
+                </div>
+                </div>
+                <div class="pull-left">
+                 <ul class="zbf">
+                  <li>
+                   <ul>
+                     <li>主办方：新浪财经</li>
+                     <li>投资品种：A股</li>
+                     <li>报名时间：2015-03-01 至 2015-06-26</li>
+                     <li>比赛时间: 2015-03-27 至 2015-06-26</li>
+                   </ul>
+                  </li>
+                  <li>
+                    <ul>
+                     <li>比赛范围：公开赛</li>
+                     <li>比赛状态：<em class="zhang">进行中</em></li>
+                     <li>比赛人数：106392人</li>
+                    </ul>
+                  </li>
+                  <li><a href="#" class="chakan">查看</a></li>
+                 </ul>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+             </li>
+              <div class="bs-title">全国高手民间炒股比赛</div>
+             <li>
+              <div class="game-info">
+                <div class="pull-left">
+                <div class="syl-pm">
+                 <div class="pull-left"><em class="syl">95.32%</em><br>收益率</div>
+                 <div class="pull-right"><em class="pm">95.32%</em><br>排名</div>
+                 <div class="clearfix"></div>
+                </div>
+                </div>
+                <div class="pull-left">
+                 <ul class="zbf">
+                  <li>
+                   <ul>
+                     <li>主办方：新浪财经</li>
+                     <li>投资品种：A股</li>
+                     <li>报名时间：2015-03-01 至 2015-06-26</li>
+                     <li>比赛时间: 2015-03-27 至 2015-06-26</li>
+                   </ul>
+                  </li>
+                  <li>
+                    <ul>
+                     <li>比赛范围：公开赛</li>
+                     <li>比赛状态：<em class="zhang">进行中</em></li>
+                     <li>比赛人数：106392人</li>
+                    </ul>
+                  </li>
+                  <li><a href="#" class="chakan">查看</a></li>
+                 </ul>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+             </li>
+            </ul>
+            <!--交易策略-->
+             <div class="bar-title">交易策略</div>
+             <div class="cl-info">
+              <p style="color:#333333;font-size:14px;font-weight:bold;">操作3重点：</p>
+              <p>1、以高准确率，无风险操作为核心；2、追求每一次操作的收益；3、脱离概率操作的传统，真正让大家赚到钱，成为股市中的少数人。</p>
+              <p>螺纹1510周三跟随其他商品节奏弱势调整，暂无明显走强动能，盘中提示背靠2400支撑逢低轻仓试多操作，后止损离场，继续观望。周三建议观察低位</p>
+              <p>空平反弹格局，反弹力度与主动增仓上行品种相比稍弱，后市建议可背靠2350之上逢低中线多单操作，谨慎高位追多，等待低位反弹动能释放，中线反</p>
+              <p>弹趋势看待。</p>
+             </div>
+            <!--哎，又是一个Tab-->
+            <ul  class="ucinfo_nav clearfix" id="tabchange2">
+             <li class="active"><a href="#lsjy">历史交易</a></li>
+             <li><a href="#cpbj">操盘笔记</a></li>
+             <li><a href="#xttw">向他提问</a></li>
+           </ul>
+           <div  class="tab-content" id="user-select">
+             <div class="tab-pane active" id="lsjy">
+             <!--历史交易begin-->
+      <table  border="1" bordercolor="#cccccc" class="top-dec">
+        <tr>
+			<th width="125px">股票代码</th>
+			<th width="125px">股票名称</th>
+			<th width="125px">股票数量</th>
+            <th width="125px">股票价格</th>
+            <th width="190px">成交时间</th>
+            <th width="125px">操作</th>
+            <th>盈亏</th>
+		</tr>
+		<tr align="center">
+			<td>603636</td>
+            <td>南威软件</td>
+            <td>25200</td>
+            <td>66.79</td>
+            <td class="hui">2015-04-10 13:37:05</td>
+            <td><a href="#" target="_blank" class="icon_buy">&nbsp;</a></td>
+            <td class="zhang">138540.5</td>
+		</tr>
+        <tr align="center">
+			<td>603636</td>
+            <td>南威软件</td>
+            <td>25200</td>
+            <td>66.79</td>
+            <td class="hui">2015-04-10 13:37:05</td>
+            <td><a href="#" target="_blank" class="icon_sell">&nbsp;</a></td>
+            <td class="hui">0</td>
+		</tr>
+        </table>
+             <!--历史交易end-->
+             </div>
+             <div class="tab-pane" id="cpbj">
+             <!--操盘笔记begin-->
+             <ul class="note">
+              <li>
+               <p class="dianping">异动点评：【协同发展规划将发 京津冀股走高】</p>
+               <p class="note-info"><em class="zhang">002342 巨力索具+10.01%</em>异动点评：【协同发展规划将发 京津冀股走高】京津冀概念股盘中走高，截至发稿， 巨力索具 、<em class="zhang">000923 河北宣工+8.32%</em>涨停，<em class="zhang">300034 钢研高纳+5.42% 、 000856 冀东装备+8.73% 、 600340 华夏幸福+7.17%</em>等股涨幅居前。消息面上，京津冀发展规划已通过中央财经领导小组会议审议，更有媒体报道《京津冀协同发展规划》或于4月底下发，如今时间点已经临近。据了解，《规划》将明确区域整体定位及三省市定位以外，还将确定京津冀协同发展的近期、中期、远期目标。京津冀是继续自贸区、一带一路、长经济带等重大政策决策之后的又一大调结构、稳增长、促发展的良方。</p>
+              </li>
+                <li>
+               <p class="dianping">异动点评：【协同发展规划将发 京津冀股走高】</p>
+               <p class="note-info"><em class="zhang">002342 巨力索具+10.01%</em>异动点评：【协同发展规划将发 京津冀股走高】京津冀概念股盘中走高，截至发稿， 巨力索具 、<em class="zhang">000923 河北宣工+8.32%</em>涨停，<em class="zhang">300034 钢研高纳+5.42% 、 000856 冀东装备+8.73% 、 600340 华夏幸福+7.17%</em>等股涨幅居前。消息面上，京津冀发展规划已通过中央财经领导小组会议审议，更有媒体报道《京津冀协同发展规划》或于4月底下发，如今时间点已经临近。据了解，《规划》将明确区域整体定位及三省市定位以外，还将确定京津冀协同发展的近期、中期、远期目标。京津冀是继续自贸区、一带一路、长经济带等重大政策决策之后的又一大调结构、稳增长、促发展的良方。</p>
+              </li>
+             </ul>
+               <!--page-->
+        <div id="pages" class="pages pages2"><span class="pages_page"><a href="javascript:;" class="pages_lt pages_lt_disabled pages_disabled" page="" title="上一页">&nbsp;</a><a href="javascript:;" class="pages_num pages_curr" page="1" title="">1</a><a href="javascript:;" class="pages_num" page="2" title="">2</a><a href="javascript:;" class="pages_num" page="3" title="">3</a><a href="javascript:;" class="pages_num" page="4" title="">4</a><a href="javascript:;" class="pages_num" page="5" title="">5</a><a href="javascript:;" class="pages_rt" page="" title="下一页">&nbsp;</a></span><span class="pages_search"><span>共<code>156</code>页，到第
+          <input type="text" class="pages_txt">
+          页</span><a href="javascript:;" class="pages_smt">确定</a></span></div>
+     <!--弹出框-->
+    <div class="info_kuang">
+   <div class="gpxx">
+     <div class="pull-left"><h3>股票信息</h3></div>
+     <div class="pull-right">
+       <a href="#">交易</a>
+       <a href="#">发布笔记</a>
+       <span><img src="style/images/close.png"></span>
+     </div>
+   </div>
+   <div class="gp_content">
+    <div class="gygn">
+    <div class="pull-left gygn_tt">
+    <p><span class="red_tt">钢研高纳</span><span class="red_tt">300034</span><span class="hui">15:03:52</span></p>
+    <p><span class="howmuch">26.5元</span><span class="howmuch">+5.42%</span></p>
+    <p>该股票近三个月内,有<em style="color:#333333;font-weight:bold;">28</em>人买卖</p>
+    <p>本正在持仓的高手:</p>
+    </div>
+    <div class="pull-right">
+     <div id="gpzx" style="height:200px; width:320px;"></div>
+    </div>
+    <div class="clearfix"></div>
+    </div>
+    <!--买入卖出-->
+  <div class="person_scorll">
+    <span>买出:</span> 
+    <div class="person_tt">
+    <div class="prev LeftBotton"></div>
+    <div class="next RightBotton"></div>
+    <div class="anyClass">
+        <ul>
+            <li><img src="picture/pr1.png" width="48" height="47"></li>
+            <li><img src="picture/pr2.png" width="48" height="48"></li>
+            <li><img src="picture/pr3.png" width="48" height="48"></li>
+            <li><img src="picture/pr4.png" width="48" height="48"></li>
+            <li><img src="picture/pr5.png" width="48" height="48"></li>
+            <li><img src="picture/pr6.png" width="48" height="48"></li>
+            <li><img src="picture/pr5.png" width="48" height="48"></li>
+            <li><img src="picture/pr4.png" width="48" height="48"></li>
+            <li><img src="picture/pr3.png" width="48" height="48"></li>
+            <li><img src="picture/pr2.png" width="48" height="48"></li>
+            <li><img src="picture/pr1.png" width="48" height="48"></li>   
+        </ul>
+    </div>
+    </div>
+  </div>
+  <div class="person_scorll">
+    <span>买出:</span> 
+    <div class="person_tt">
+    <div class="prev2 LeftBotton"></div>
+    <div class="next2 RightBotton"></div>
+    <div class="anyClass2">
+        <ul>
+            <li><img src="picture/pr1.png" width="48" height="47"></li>
+            <li><img src="picture/pr2.png" width="48" height="48"></li>
+            <li><img src="picture/pr3.png" width="48" height="48"></li>
+            <li><img src="picture/pr4.png" width="48" height="48"></li>
+            <li><img src="picture/pr5.png" width="48" height="48"></li>
+            <li><img src="picture/pr6.png" width="48" height="48"></li>
+            <li><img src="picture/pr5.png" width="48" height="48"></li>
+            <li><img src="picture/pr4.png" width="48" height="48"></li>
+            <li><img src="picture/pr3.png" width="48" height="48"></li>
+            <li><img src="picture/pr2.png" width="48" height="48"></li>
+            <li><img src="picture/pr1.png" width="48" height="48"></li>   
+        </ul>
+    </div>
+    </div>
+  </div>
+    <!--买入卖出end-->
+   </div>
+ </div>
+<!--弹出框结束-->
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script> 
+<script>
+var gpzx= echarts.init(document.getElementById('gpzx'));  
+optiongpzx = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'联盟广告',
+            type:'line',
+            stack: '总量',
+            data:[-1,2,4]
+        },
+      
+        {
+            name:'搜索引擎',
+            type:'line',
+            stack: '总量',
+            data:[-3,1,5]
+        }
+    ]
+}; 
+// 为echarts对象加载数据 
+gpzx.setOption(optiongpzx);
+</script>    
+<script src="style/js/jquery.jcarousellite.min.js"></script> 
+             <!--弹出框结束-->
+             <!--操盘笔记end-->
+             </div>
+             <div class="tab-pane" id="xttw">
+             <!--提问begin-->
+              <div class="xttw">
+
+                <div class="pull-left"><img src="picture/tw.png"></div>
+                <div class="pull-right"><input type="image" src="picture/xttw.png" class="alert_twk"></div>
+                <div class="clearfix"></div>
+                <p>**炒股比赛平台策略师所发观点和回答问题，仅代表个人观点，任何情况下不应解释为本平台认可、赞成该观点。本平台不对策略师陈述、观点判断所包含内容的准确性、可靠性或完整性提供任何明示或暗示的保证。<em class="zhang">市场有风险，投资需谨慎。</em>所有策略师不提供代客理财或qq咨询等非法业务。有私下进行收费咨询或付费服务的均属非法个人行为，与策略海平台无关，请各位用户务必不要上当受骗！
+                </p>
+                <form id="result">
+                 <textarea class="tjwt" placeholder="输入内容" autofocus></textarea>
+                 <input type="button" class="tijiao"  id="question_tj" value="提交">
+                </form>
+                <script>
+				$(function(){
+				 $(".alert_twk").click(function(){
+					$("#result").css("display","block");
+				 });
+				 $("#question_tj").click(function(){
+				     var user_id="123";
+					 var myDate = new Date();
+					 var user_time=myDate.toLocaleString( );
+					 var tjwt=$(".tjwt").val();
+					 var question = "user_id="+user_id+"&"+"tjwt="+tjwt+"&"+"user_time="+user_time;
+					 alert(question);
+				 });
+				});
+				</script>
+              </div>
+              <div class="question-haha">
+                <div class="pull-left"><img src="picture/p1.png"></div>
+                <div class="pull-right">
+                  <p><em class="number">提问：</em>不好意思，基本上不做其他股票咨询及解答。目前只做价值投资，消息面和技术面不做分析与判断，不跟风！我只做价值评估！</p>
+                  <p class="hui">main4876143  提问时间：2015年02月15日  14:23</p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="question-haha">
+                <div class="pull-left"><img src="picture/p1.png"></div>
+                <div class="pull-right">
+                  <p><em class="number">提问：</em>不好意思，基本上不做其他股票咨询及解答。目前只做价值投资，消息面和技术面不做分析与判断，不跟风！我只做价值评估！</p>
+                  <p class="hui">main4876143  提问时间：2015年02月15日  14:23</p>
+                </div>
+                <div class="clearfix"></div>
+                <hr style="border-bottom:1px dotted #dfdfdf;padding:5px 0;">
+                <div class="answer">
+                 <div class="pull-left"><img src="picture/p1.png"></div>
+                  <div class="pull-right">
+                  <p><em class="number">回答：</em>不好意思，基本上不做其他股票咨询及解答。目前只做价值投资，消息面和技术面不做分析与判断，不跟风！我只做价值评估！</p>
+                  <p class="hui">main4876143  提问时间：2015年02月15日  14:23</p>
+                 </div>
+                <div class="clearfix"></div>
+                </div>
+             </div>
+              <div class="question-haha">
+                <div class="pull-left"><img src="picture/p1.png"></div>
+                <div class="pull-right">
+                  <p><em class="number">提问：</em>不好意思，基本上不做其他股票咨询及解答。目前只做价值投资，消息面和技术面不做分析与判断，不跟风！我只做价值评估！</p>
+                  <p class="hui">main4876143  提问时间：2015年02月15日  14:23</p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                <!--page-->
+        <div id="pages" class="pages pages2"><span class="pages_page"><a href="javascript:;" class="pages_lt pages_lt_disabled pages_disabled" page="" title="上一页">&nbsp;</a><a href="javascript:;" class="pages_num pages_curr" page="1" title="">1</a><a href="javascript:;" class="pages_num" page="2" title="">2</a><a href="javascript:;" class="pages_num" page="3" title="">3</a><a href="javascript:;" class="pages_num" page="4" title="">4</a><a href="javascript:;" class="pages_num" page="5" title="">5</a><a href="javascript:;" class="pages_rt" page="" title="下一页">&nbsp;</a></span><span class="pages_search"><span>共<code>156</code>页，到第
+          <input type="text" class="pages_txt">
+          页</span><a href="javascript:;" class="pages_smt">确定</a></span></div>
+        <!--page-->
+             <!--提问end-->
+             </div>
+           </div>
+           <!--这个Tab结束啦-->
+            <!--用户概览end-->
+          </div>
+         
+        </div>
+<script> 
+  $(function () { 
+  $('#tabchange2 a').click(function (e) { 
+    e.preventDefault();//阻止a链接的跳转行为 
+    $(this).tab('show');//显示当前选中的链接及关联的content 
+   }) 
+  $('#shouyi-detail a').click(function (e) { 
+    e.preventDefault();//阻止a链接的跳转行为 
+    $(this).tab('show');//显示当前选中的链接及关联的content 
+   })
+  }) 
+</script>
+<script>
+var syzdsy = echarts.init(document.getElementById('syzdsy')); 
+var amonth = echarts.init(document.getElementById('amonth')); 
+optionsyzdsy = {
+   tooltip: {
+       trigger: "axis",
+       
+   },
+   legend: {
+       x: 'center',
+	   y: 'bottom',
+       data: ["用户累计收益率", "大盘累计收益率"]
+   },
+   calculable : true,
+   xAxis: [
+       {
+           type: "category",
+           splitLine: {show: false},
+		   boundaryGap : false,
+           data:(function(){
+				var arr=[];
+				$.ajax({
+				type : "get",
+				async :false, //同步执行
+				url : "test3.json",
+				data : {},
+				dataType : "json", //返回数据形式为json
+				success : function(result) {
+				if (result) {
+				 if (result) {
+				   for(var i=0;i<result.a.length;i++){
+					 arr.push(result.a[i].time);
+					}    
+				}
+			   }
+			},
+			error : function(errorMsg) {
+				alert("不好意思，大爷，图表请求数据失败啦!");
+			}
+		   })
+		   return arr;
+		   console.log(arr);
+		})()
+       }
+   ],
+   yAxis: [
+       {
+           type: "value",
+           axisLabel : {
+                formatter: '{value} %'
+            }
+       }
+   ],
+   calculable: true,
+   series: [
+       {
+           name: "用户累计收益率",
+           type: "line",
+          data:(function(){
+					var arr=[];
+					$.ajax({
+					type : "get",
+					async :false, //同步执行
+					url : "test3.json",
+					data : {},
+					dataType : "json", //返回数据形式为json
+					success : function(result) {
+					if (result) {
+					 if (result) {
+					   for(var i=0;i<result.a.length;i++){
+						 arr.push(result.a[i].yhlj);
+						}    
+					}
+				   }
+				},
+				error : function(errorMsg) {
+					alert("不好意思，大爷，图表请求数据失败啦!");
+				}
+			   })
+			   return arr;
+			   console.log(arr);
+			})(),
+       },
+       {
+           name: "大盘累计收益率",
+           type: "line",
+           data:(function(){
+				var arr=[];
+				$.ajax({
+				type : "get",
+				async :false, //同步执行
+				url : "test3.json",
+				data : {},
+				dataType : "json", //返回数据形式为json
+				success : function(result) {
+				if (result) {
+				 if (result) {
+				   for(var i=0;i<result.a.length;i++){
+					 arr.push(result.a[i].dplj);
+					}    
+				}
+			   }
+			},
+			error : function(errorMsg) {
+				alert("不好意思，大爷，图表请求数据失败啦!");
+			}
+		   })
+		   return arr;
+		   console.log(arr);
+		})(),
+
+       }
+   ]
+};
+optionamonth = {
+    series : [
+        {
+            type : 'pie',
+            radius : [20, 40],
+            x: '0%', // for funnel
+            itemStyle : labelFromatter,
+            data : [
+                {name:'invisible', value:46, itemStyle : labelBottom},
+                {name:'盈利交易', value:54,itemStyle : labelTop}
+            ]
+        }
+    ]
+};  
+syzdsy.setOption(optionsyzdsy); 
+amonth.setOption(optionamonth); 
+</script>
+<script src="style/js/jquery.jcarousellite.min.js"></script>
+<script>
+$(function() {
+   /* $(".main1 .jCarouselLite1").jCarouselLite({
+        btnNext: ".main1 .next",
+        btnPrev: ".main1 .prev",
+        speed: 500,
+        easing: "easeinout"
+    }); 
+	$(".main2 .jCarouselLite2").jCarouselLite({
+        btnNext: ".main2 .next",
+        btnPrev: ".main2 .prev",
+        speed: 500,
+        easing: "easeinout"
+    }); */
+	 $(".main1").jCarouselLite({
+
+        btnNext: ".LeftBotton",
+
+        btnPrev: ".RightBotton"
+
+    });
+	$(".main2").jCarouselLite({
+
+        btnNext: ".LeftBotton2",
+
+        btnPrev: ".RightBotton2"
+
+    });
+
+});
+</script>
+ <!--content-end-->
+</div>
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><span class="wb"><img src="style/images/wb.png" /></span><span><img src="style/images/wx.png" class="swx" /></span>
+       <span class="qqun">官方交流1群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a>(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=c2f418928c74e78f4507784cab8eaa01e8f06816ad280d83cf3896d7c723b7a4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="回不去的年少时光" title="回不去的年少时光"></a></span>
+      </div>
+      <div class="wxshow"><i></i><img src="style/images/swx.png"></div>
+      <div class="wbshow"><i></i><img src="style/images/gzwb.png"></div> 
+	  <script>
+	   $(function(){
+		 $(".swx").hover(function(){
+		   $(".wxshow").css("display","block");	 
+		 },function(){
+		   $(".wxshow").css("display","none");	  
+		});  
+		$(".wb").hover(
+		function () {
+			$(".wbshow").css("display","block");
+		},
+		function () {
+			$(".wbshow").css("display","none");
+		}
+	); 
+	   });
+	  </script>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3275154401&amp;site=qq&amp;menu=yes" title="qq"><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+     
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+      
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+</html>
