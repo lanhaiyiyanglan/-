@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="applicable-device" content="pc,mobile">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>炒股网</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="../style/css/bootstrap.min.css" rel="stylesheet">
+<link href="../style/css/common.css" rel="stylesheet">
+<link href="../style/css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+      <script src="../style/js/html5shiv.min.js"></script>
+      <script src="../style/js/respond.min.js"></script>
+    <![endif]-->
+<script src="../style/js/jquery-1.11.2.min.js"></script>
+<script src="../style/js/bootstrap.min.js"></script>
+
+</head>
+
+<div class="top">
+  <div class="wraper">
+    <div class="pull-left">欢迎您来到***炒股比赛网</div>
+    <div class="pull-right"> <span><a href="#" onclick = "document.getElementById('login-light').style.display='block';document.getElementById('fade').style.display='block'" >登录</a>&nbsp;|&nbsp;</span> <span><a href="#" onclick = "document.getElementById('register-light').style.display='block';document.getElementById('fade').style.display='block'">注册</a>&nbsp;|&nbsp;</span> <span><a href="#">找高手</a>&nbsp;|&nbsp;</span><span><a href="#">股票大全</a>&nbsp;|&nbsp;</span><span><a href="#">帮助</a>&nbsp;|&nbsp;</span><span><a href="#">设为首页</a>&nbsp;|&nbsp;</span><span><a href="#">放到桌面</a>&nbsp;|&nbsp;</span><span><a href="#">收藏</a>&nbsp;|&nbsp;</span><span>
+      <select class="dropdown" style="background:#FFF;">
+        <option selected="selected" value="0">其他服务</option>
+        <option value="1">手机</option>
+        <option value="2">邮箱</option>
+      </select>
+      </span></div>
+  </div>
+</div>
+<div class="daohang">
+  <div class="wraper daohang-toolbar">
+    <div class="pull-left"><a href="#"><img src="../style/images/logo.png" width="214" height="54"></a></div>
+    <div class="pull-right">
+      <ul class="daohang-bar">
+        <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+        <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+        <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+        <li><a href="../商城/商城.html">积分商城</a></li>
+        <li><a href="https://www.sbo8.com/">股票学院</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+  <div class="wraper sp-detail">
+  <!---->
+  <div class="xq-title"><a href="#">全部商品</a> ><a href="#">电子数码</a> > <a style="color:#ff4401;">手绘青瓷快客杯</a></div>
+  <div class="sp-info clearfix">
+   <div class="pull-left cpd-img">
+     <img src="../picture/da1.png">
+   </div>
+   <form class="pull-left cp-xgxx" onsubmit="return getB()">
+    <ul class="sp-xs-xx">
+     <li class="cp-name"><input type="button" value="容山快客杯汝窑陶瓷手绘五彩青瓷茶具" id="tea-name"></li>
+     <li class="cp-ms">历史最低价 手工绘制 办公旅游必备</li>
+     <li class="jt-xx">
+        <p>兑换价格：  <span class="dqjg"><input type="text" value="19800" id="tea-price">积分</span><span><img src="../style/images/sl.png"></span></p>
+        <p>市场价格：  ￥289.00</p>
+     </li>
+     <li>库存情况:  有货</li>
+     <li>
+     兑换数量: 
+     <span>
+      <input class="min1" type="button" value="-" />
+      <input id="text_box1" class="text_box1"  type="text" value="1" />
+	  <input class="add1"  type="button" value="+" />
+     </span>
+     <span class="hui">&nbsp;&nbsp;每日兑换5件</span>
+     </li>
+     <li><input type="submit" class="ljdh" value="立即兑换"></li>
+    </ul>
+     <script type="text/javascript">
+	$(function () {
+		var t = $(".text_box1");
+		$(".add1").click(function () {
+			t.val(parseInt(t.val()) + 1);//点击+商品件数增加
+		})
+		
+		 $(".min1").click(function () {
+			 if(t.val()>1){
+				t.val(parseInt(t.val()) - 1);//点击-商品件数减少 
+			 }else{
+			   t.val()=1;
+			 }
+		})	
+	})
+	</script>
+    <script type="text/javascript">
+    function getB(){//向商品信息页面传递参数
+	url = "商品信息.html?tea-name="+escape(document.getElementById("tea-name").value);
+	url += "&tea-price="+escape(document.getElementById("tea-price").value); 
+　  　url += "&text_box1="+escape(document.getElementById("text_box1").value);
+　  　location.href=url;
+	return false;
+	}
+</script>
+   </form>
+  </div>
+  <!--商品详情-->
+  <div class="spxq-rmsp clearfix">
+   <div class="pull-left spxq">
+     <p><img src="../style/images/spxq.png"></p>
+     <div class="product-info">
+     <p class="spms"><span class="spm">商品名:</span>&nbsp;&nbsp;容山快客杯汝窑陶瓷手绘五彩青瓷茶具<br><span class="spm">参数详情:</span>&nbsp;&nbsp;见下图</p>
+     <p><img src="../picture/da2.png"></p>
+     <p class="cbms">快客杯是为个人茶饮而设计的品茶盖杯，由上杯下杯组成，一壶一杯合二为一的整体设计，壶嘴带过滤功能，壶盖为杯，它能方便快捷满足茶饮的需求</p>
+     <p><img src="../picture/da3.png"></p>
+     <p class="cbms">造型简单大方，寥寥几笔勾勒出一副栩栩如生的图案，让人爱不释手。图案构图大胆新颖，取材于山水田园活常见景图，器型注重以人为本，深受广大群众喜欢</p>
+     <p><img src="../style/images/wxts.png"></p>
+     </div>
+   </div>
+   <div class="pull-right rmsp">
+     <div class="rmsp-title">热门商品</div>
+     <!--hot-sale-->
+     <div class="paihang_hot">
+           <ul class="hot_tabs"><li class="on">推荐商品<span></span></li><li>最新上架</li></ul>
+           <ul class="hot_list show">
+             <li>
+              <div class="pull-left tjsp"><img src="../picture/tt1.png"></div>
+              <div class="pull-right tjsp-info">
+               <p>陶瓷组合竹制茶道<br>六君子&nbsp;&nbsp;精品茶具</p>
+               <p class="dqjg">17430积分</p>
+               <p><a href="商品信息.html" class="wydh">我要兑换</a></p>
+              </div>
+              <div class="clearfix"></div>
+             </li>
+             <li>
+              <div class="pull-left tjsp"><img src="../picture/tt2.png"></div>
+              <div class="pull-right tjsp-info">
+               <p>陶瓷组合竹制茶道<br>六君子&nbsp;&nbsp;精品茶具</p>
+               <p class="dqjg">17430积分</p>
+               <p><a href="商品信息.html" class="wydh">我要兑换</a></p>
+              </div>
+              <div class="clearfix"></div>
+             </li>
+             <li>
+              <div class="pull-left tjsp"><img src="../picture/tt3.png"></div>
+              <div class="pull-right tjsp-info">
+               <p>陶瓷组合竹制茶道<br>六君子&nbsp;&nbsp;精品茶具</p>
+               <p class="dqjg">17430积分</p>
+               <p><a href="商品信息.html" class="wydh">我要兑换</a></p>
+              </div>
+              <div class="clearfix"></div>
+             </li>
+             <li>
+              <div class="pull-left tjsp"><img src="../picture/tt4.png"></div>
+              <div class="pull-right tjsp-info">
+               <p>陶瓷组合竹制茶道<br>六君子&nbsp;&nbsp;精品茶具</p>
+               <p class="dqjg">17430积分</p>
+               <p><a href="商品信息.html" class="wydh">我要兑换</a></p>
+              </div>
+              <div class="clearfix"></div>
+             </li>
+             <li>
+              <div class="pull-left tjsp"><img src="../picture/tt5.png"></div>
+              <div class="pull-right tjsp-info">
+               <p>陶瓷组合竹制茶道<br>六君子&nbsp;&nbsp;精品茶具</p>
+               <p class="dqjg">17430积分</p>
+               <p><a href="商品信息.html" class="wydh">我要兑换</a></p>
+              </div>
+              <div class="clearfix"></div>
+             </li>
+           </ul>
+           <ul class="hot_list">
+             <li>
+              <div class="pull-left tjsp"><img src="../picture/tt5.png"></div>
+              <div class="pull-right tjsp-info">
+               <p>陶瓷组合竹制茶道<br>六君子&nbsp;&nbsp;精品茶具</p>
+               <p class="dqjg">17430积分</p>
+               <p><a href="商品信息.html" class="wydh">我要兑换</a></p>
+              </div>
+              <div class="clearfix"></div>
+             </li>
+           </ul>
+        </div>
+        <script>
+$(function() {
+    //热点排行
+    $(".hot_tabs li").each(function(index){
+        $(this).mouseover(function(){
+            $(".hot_tabs li").removeClass("on");
+            $(this).addClass("on");
+            $(".hot_list.show").removeClass("show");
+            $(".hot_list").eq(index).addClass("show");
+        });
+    });
+});
+</script>
+     <!--hot-sale-end-->
+   </div>
+  </div>
+  <!---->
+</div>
+</div>
+<!--middle-end-->
+<div class="footer">
+  <div class="wraper">
+    <div class="foot-about">
+      <ul class="clearfix about-link">
+        <li><a href="#">关于我们</a>|</li>
+        <li><a href="#">常见问题</a>|</li>
+        <li><a href="#">联系我们</a>|</li>
+        <li><a href="#">网站地图</a>|</li>
+        <li><a href="#">商务合作</a>|</li>
+        <li><a href="#">合作伙伴</a>|</li>
+        <li><a href="#">使用条例</a>|</li>
+        <li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us"><span>关注我们:</span><a href="#"><img src="../style/images/qq.png" /></a><a href="#"><img src="../style/images/xl.png" /></a><a href="#"><img src="../style/images/wb.png" /></a><a href="#"><img src="../style/images/wx.png" /></a><span class="qqun">官方交流1群:8888888(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:9999999</span></div>
+      <div class="about-kefu"><em>客服热线（工作时间 9:00~18:00）</em><strong>888-888-8888</strong><a><img src="../style/images/kf.png" >在线客服</a></div>
+    </div>
+    <hr class="footer_line" />
+    <div class="foot-safelink"><a href="#"><img src="../style/images/cxwz.png" /></a><a href="#"><img src="../style/images/360.png" /></a><a href="#"><img src="../style/images/aqyz.png" /></a><a href="#"><img src="../style/images/kxwz.png" /></a><a href="#"><img src="../style/images/qyzs.png" /></a></div>
+    <p>Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span><br>
+      风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.</p>
+  </div>
+</div>
+<script src="../style/js/common.js"></script>
+</body>
+</html>
+
+
+
