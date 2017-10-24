@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="applicable-device" content="pc,mobile">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>我的比赛成绩</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="../style/css/bootstrap.min.css" rel="stylesheet">
+<link href="../style/css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="../style/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<link href="../style/css/common.css" rel="stylesheet">
+<link href="../style/css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+      <script src="../style/js/html5shiv.min.js"></script>
+      <script src="../style/js/respond.min.js"></script>
+    <![endif]-->
+<script src="../style/js/jquery-1.11.2.min.js"></script>
+<script src="../style/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../style/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../style/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+</head>
+
+<div class="top">
+  <div class="wraper">
+    <div class="pull-left">欢迎您来到***炒股比赛网</div>
+    <div class="pull-right"> <span><a href="javascript:void(0);" id="LOGIN">登录</a>&nbsp;|&nbsp;</span> <span><a href="javascript:void(0);" id="register" >注册</a>&nbsp;|&nbsp;</span> <span><a href="#">找高手</a>&nbsp;|&nbsp;</span><span><a href="#">股票大全</a>&nbsp;|&nbsp;</span><span><a href="#">帮助</a>&nbsp;|&nbsp;</span><span><a href="#">设为首页</a>&nbsp;|&nbsp;</span><span><a href="#">放到桌面</a>&nbsp;|&nbsp;</span><span><a href="#">收藏</a>&nbsp;|&nbsp;</span><span>
+      <select class="dropdown" style="background:#FFF;">
+        <option selected="selected" value="0">其他服务</option>
+        <option value="1">手机</option>
+        <option value="2">邮箱</option>
+      </select>
+      </span></div>
+  </div>
+</div>
+<div class="daohang">
+  <div class="wraper daohang-toolbar">
+    <div class="pull-left"><a href="#"><img src="../style/images/logo.png" width="214" height="54"></a></div>
+    <div class="pull-right">
+      <ul class="daohang-bar">
+        <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+        <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+        <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+        <li><a href="../商城/商城.html">积分商城</a></li>
+        <li><a href="https://www.sbo8.com/">股票学院</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="middle">
+<div class="wraper clearfix">
+<div class="zhishu"></div>
+<div class="U_left">
+  <div class="userinfo01" id="userinfo01">
+    <div><a href="#" target="_blank"><img src="../style/images/userinfo.gif" alt="min悦" title="min悦"></a></div>
+    <h3><a href="#" target="_blank" title="min悦">min悦</a></h3>
+  </div>
+  <ul class="userinfo02 clearfix">
+    <li>
+      <p>15</p>
+      <p>订阅</p>
+    </li>
+    <li>
+      <p>15</p>
+      <p>追随者</p>
+    </li>
+    <li>
+      <p>15</p>
+      <p>操作笔记</p>
+    </li>
+  </ul>
+  <ul class="u_leftNav">
+    <li class="Nav_opend">
+      <h3 class="uico uico01"><a  href="mymatch.html" class="Nav_opend_openon">我的比赛</a></h3>
+      <p class="u_leftNav_subselected"><a href="score.html">我的成绩</a></p>
+      <p><a href="Buy.html">我的交易</a></p>
+      <p><a href="ranking.html">大赛详情</a></p>
+      <p><a href="ranking.html">排行榜</a></p>
+      <p><a href="winners.html">奖项公布</a></p>
+    </li>
+    <li>
+      <h3 class="uico uico02"><a href="query.html" class="Nav_opend_openoff">模拟交易</a></h3>
+    </li>
+    <li>
+      <h3 class="uico uico03"><a href="portfolio.html" class="Nav_opend_openoff">我的自选股</a></h3>
+    </li>
+    <li>
+      <h3 class="uico uico04"><a href="Contacts.html" class="Nav_opend_openoff">人脉关系</a></h3>
+    </li>
+    <li>
+      <h3 class="uico uico05"><a href="windvane.html" class="Nav_opend_openoff">市场风向标</a></h3>
+    </li>
+  </ul>
+</div>
+<div class="U_right clearfix">
+<div class="ucinfo_all">
+  <div class="ucinfo_titie"><span>我的比赛成绩</span></div>
+  <div class="ucinfo_all01 clearfix">
+    <div class="fl st_rank">
+      <ul class="st_tit">
+        <li><span style="color:#865501">排名</span>:<span class="fs16 icon_matchArrDown">51818</span></li>
+        <li><span style="color:#865501">收益</span>:<span class="fs16 cred">5.08%</span></li>
+      </ul>
+      <ul class="stit_detail clearfix">
+        <li>
+          <label>资产:</label>
+          <span class="c57 j_allFound">530671.81</span></li>
+        <li>
+          <label>当日收益:</label>
+          <span class="c57 j_profitRDay">1.00%</span></li>
+        <li>
+          <label>可用资金:</label>
+          <span class="c57">887.84元</span></li>
+        <li>
+          <label>当日盈亏:</label>
+          <span class="c57 j_profitFound">5264.00</span></li>
+        <li>
+          <label>起始日期:</label>
+          <span class="c57">2015-04-15</span></li>
+        <li>
+          <label>单位:</label>
+          <span class="c57">CNY</span></li>
+      </ul>
+    </div>
+    <div id="Uline" style="height:200px; width:450px;" class="fl syline"  ></div>
+  </div>
+  <div class="ucinfo_all02 clearfix">
+    <div class="p_chart fl">
+      <div id="ylpic" style="height:83px; width:83px;"  class="p_chart_img" ></div>
+      <div id="ylpic1" class="detail"></div>
+    </div>
+    <div class="p_chart fl">
+      <div id="kspic" style="height:83px; width:83px;"  class="p_chart_img" ></div>
+      <div id="kspic1" class="detail">
+      </div>
+    </div>
+    <ul class="fl st_redetail">
+      <li>
+        <p><span>最大收益</span>:<span>--</span></p>
+        <p><span>交易频次</span>:<span class="c57">12.00天/次</span></p>
+        <p><span>擅长行业</span>:<span class="c57">--</span></p>
+      </li>
+    </ul>
+  </div>
+   
+</div>
+<div class="ucinfo_sj">
+<ul class="ucinfo_nav clearfix" id="myTab">
+  <li class="active"><a href="#u_dqcc">当前持仓</a></li>
+  <li><a href="#u_dqwt">当前委托</a></li>
+  <li><a href="#u_dqcj">当前成交</a></li>
+  <li><a href="#u_lscj">历史成交</a></li>
+  <li><a href="#u_dzd">对账单</a></li>
+</ul>
+<div class="tab-content ucinfo_navc">
+  <div class="tab-pane active" id="u_dqcc">
+    <table>
+      <tbody>
+        <tr>
+          <th >序号</th>
+          <th>证券名称(代码)</th>
+          <th>当前持股</th>
+          <th>持仓成本</th>
+          <th>最新价</th>
+          <th>持股市值</th>
+          <th>浮动盈亏</th>
+          <th>盈亏比例</th>
+          <th>仓位</th>
+          <th>操作</th>
+        </tr>
+        <tr >
+          <td >1</td>
+          <td ><a href="#" target="_blank">重庆燃气(sh600917)</a></td>
+          <td >37600</td>
+          <td >13.274</td>
+          <td >14.09</td>
+          <td >529784</td>
+          <td >30671.82</td>
+          <td >6.15%</td>
+          <td >99.83%</td>
+          <td><a href="#" target="_blank" class="icon_buy">&nbsp;</a>&nbsp;&nbsp;<a href="#" target="_blank" class="icon_sell">&nbsp;</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="u_dqwt">
+    <table>
+      <tbody>
+        <tr>
+          <th>序号</th>
+          <th>证券名称(代码)</th>
+          <th>买入/卖出</th>
+          <th>委托价格</th>
+          <th>委托数量</th>
+          <th>委托时间</th>
+          <th>成交状态</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="#" target="_blank">重庆燃气(sh600917)</a></td>
+          <td>买入</td>
+          <td>23.888</td>
+          <td>300000</td>
+          <td>2015-04-15 10:48:10</td>
+          <td>完成</td>
+          <td><a href="#" target="_blank" >取消委托</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="u_dqcj">
+    <table>
+      <tbody>
+        <tr>
+          <th>证券名称(代码)</th>
+          <th>买入/卖出</th>
+          <th>成交价格</th>
+          <th>成交数量</th>
+          <th>成交金额</th>
+          <th>成交时间</th>
+        </tr>
+        <tr>
+          <td>重庆燃气(sh600917)</td>
+          <td>买入</td>
+          <td>12.66</td>
+          <td>30000</td>
+          <td>169858</td>
+          <td>2015-04-15 10:48:10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="u_lscj">
+    <div class="dateSelect  clearfix">
+					<span>从</span><input id="dtStart" type="text" name="time" class="pall_sdate pall_date" value="" readonly="readonly" ><span>到</span><input id="dtEnd" type="text" name="time" class="pall_edate pall_date " value="" readonly="readonly" ><a href="javascript:void(0);" id="Historicalturnover"  class="btn_calSelect">查询</a></div>
+    <table id="HistoricalturnoverT">
+      <tbody>
+        <tr>
+          <th>证券名称(代码)</th>
+          <th>买入/卖出</th>
+          <th>成交价格</th>
+          <th>成交数量</th>
+          <th>成交金额</th>
+          <th>成交时间</th>
+        </tr>
+        <tr>
+          <td>重庆燃气(sh600917)</td>
+          <td>买入</td>
+          <td>12.66</td>
+          <td>30000</td>
+          <td>169858</td>
+          <td>2015-04-15 10:48:10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="u_dzd">
+     <div class="dateSelect clearfix">
+					<span>从</span><input id="dtStart1" type="text" name="time" class="pall_sdate pall_date " value="" readonly="readonly" ><span>到</span><input id="dtEnd1" type="text" name="time" class="pall_edate pall_date " value="" readonly="readonly" ><a href="javascript:void(0);" id="AccountStatement" class="btn_calSelect">查询</a></div>
+    <table id="AccountStatementT">
+      <tbody>
+        <tr>
+          <th>成交时间</th>
+          <th>证券名称(代码)</th>
+          <th>类型</th>
+          <th>成交价格</th>
+          <th>成交数量</th>
+          <th>佣金</th>
+          <th>印花税</th>
+          <th>过户费</th>
+          <th>发生金额</th>
+          <th>可用资金</th>
+        </tr>
+        <tr >
+          <td >2015-04-15 10:48:10</td>
+          <td><a href="#" target="_blank">重庆燃气(sh600917)</a></td>
+          <td>买入</td>
+          <td>13.26</td>
+          <td>37600</td>
+          <td>498.58</td>
+          <td>0.00</td>
+          <td>37.60</td>
+          <td>-499112.18</td>
+          <td>887.84</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="wraper">
+    <div class="foot-about">
+      <ul class="clearfix about-link">
+        <li><a href="#">关于我们</a>|</li>
+        <li><a href="#">常见问题</a>|</li>
+        <li><a href="#">联系我们</a>|</li>
+        <li><a href="#">网站地图</a>|</li>
+        <li><a href="#">商务合作</a>|</li>
+        <li><a href="#">合作伙伴</a>|</li>
+        <li><a href="#">使用条例</a>|</li>
+        <li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us"><span>关注我们:</span><a href="#"><img src="../style/images/qq.png" /></a><a href="#"><img src="../style/images/xl.png" /></a><a href="#"><img src="../style/images/wb.png" /></a><a href="#"><img src="../style/images/wx.png" /></a><span class="qqun">官方交流1群:8888888(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:9999999</span></div>
+      <div class="about-kefu"><em>客服热线（工作时间 9:00~18:00）</em><strong>888-888-8888</strong><a><img src="../style/images/kf.png" >在线客服</a></div>
+    </div>
+    <hr class="footer_line" />
+    <div class="foot-safelink"><a href="#"><img src="../style/images/cxwz.png" /></a><a href="#"><img src="../style/images/360.png" /></a><a href="#"><img src="../style/images/aqyz.png" /></a><a href="#"><img src="../style/images/kxwz.png" /></a><a href="#"><img src="../style/images/qyzs.png" /></a></div>
+    <p>Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span><br>
+      风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.</p>
+  </div>
+</div>
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script> 
+<script src="../style/js/member.js"type="text/javascript"> </script> 
+<input id="s" type="hidden" value="1">
+</body></html>

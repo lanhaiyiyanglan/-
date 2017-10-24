@@ -1,0 +1,1 @@
+<?php echo strrpos('sz000055','_'); ?>

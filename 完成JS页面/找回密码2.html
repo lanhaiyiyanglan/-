@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>炒股网</title>
+    <!-- InstanceEndEditable -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Bootstrap -->
+   <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/common.css" rel="stylesheet">
+    <link href="style/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <script src="style/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="style/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--top-->
+<div class="top">
+ <div class="wraper">
+     <div class="pull-left">
+       欢迎您来到***炒股比赛网
+     </div>
+     <div class="pull-right">
+       <span><a href="#" onclick = "document.getElementById('login-light').style.display='block';document.getElementById('fade').style.display='block'" >登录</a>&nbsp;|&nbsp;</span>
+       <span><a href="#" onclick = "document.getElementById('register-light').style.display='block';document.getElementById('fade').style.display='block'">注册</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">找高手</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">股票大全</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">帮助</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">设为首页</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">放到桌面</a>&nbsp;|&nbsp;</span>
+       <span><a href="#">收藏</a>&nbsp;|&nbsp;</span>
+      <span>
+       <select class="dropdown" style="background:#FFF;">   
+         <option selected="selected" value="0">其他服务</option>  
+         <option value="1">手机</option>  
+         <option value="2">邮箱</option>  
+       </select>
+    </span>
+   </div>
+ </div>
+</div>
+<!--背景层-->
+<div id="fade" class="black_overlay"></div> 
+<!--登陆弹出层-->
+<div id="login-light" class="white_content">
+ <div class="login-tan pull-left">
+   <!----> 
+    <div class="login-title">
+      用户登陆<img src="style/images/hya.png">
+    </div>
+    <form>
+     <table border="0" cellspacing="0" width="270" class="login-table">
+     <tr>
+	 <td>
+      <input type="text" class="login-name" placeholder="请输入您的手机号/邮箱号">
+     </td>
+    </tr>
+     <tr>
+	 <td>
+      <input type="text" class="login-pwd" placeholder="密码为6-16位数字和字母组成">
+     </td>
+     <tr>
+     <td>
+      <span style="padding-right:25px;"><input type="checkbox">记住账号</span>
+      <span style="padding-right:25px;"><input type="checkbox">自动登陆</span>
+      <a href="#" style="color:#227dbc;">忘记密码？</a>
+     </td>
+     </tr>
+    </tr>
+    </table>
+    <input type="submit" value="登&nbsp;陆" class="login-submit">
+    </form>
+   <!---->
+  </div>
+  <div class="pull-left">
+    <div class="guanbi"><a href = "javascript:void(0)" onclick = "document.getElementById('login-light').style.display='none';document.getElementById('fade').style.display='none'"><img src="style/images/close.png"></a>
+    </div>
+    <div class="tan-right">
+     <p style="border-bottom:1px solid #dbdbdb;line-height:40px;">
+     还没有****炒股比赛网帐号？<a href="#" style="text-decoration:underline;color:#eb4d15;">立即注册</a>
+    </p>
+    <div>
+      <p>您也可以用以下方式登录：</p>
+      <p><a href="#"><img src="style/images/wbdl.png"></a><br /><br /><a href="#"><img src="style/images/qqdl.png"></a></p>
+    </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<!--注册弹出层--> 
+<div id="register-light">
+   <div class="pull-left"><img src="style/images/mfzc.png"></div>
+   <div class="pull-right"><a href = "javascript:void(0)" onclick = "document.getElementById('register-light').style.display='none';document.getElementById('fade').style.display='none'"><img src="style/images/close.png"></a></div>
+   <div class="clearfix"></div>
+    <form class="rg-form" id="rg-tan">
+  <table border="0" cellspacing="0">
+   <tr>
+	<td style="width:92px; height: 50px; text-align: center">手机/邮箱</td>
+	<td colspan="5">
+	<input style="width:100%; height: 32px" type="text" name="zhanghao"  validate=" minlength:11, maxlength:20, required:true" />
+	</td>
+   </tr>
+   <tr>
+	<td style="width:92px; height: 50px; text-align: center">密码</td>
+	<td colspan="5">
+	<input style="width:100%; height: 32px" type="text" name="password"  validate=" minlength:6, maxlength:20, required:true" />
+	</td>
+   </tr>
+    <tr>
+	<td style="width:92px; height: 50px; text-align: center">验证码</td>
+	<td>
+	<input style="width:100%; height: 32px" type="text" name="yzm"  validate="required:true" />
+	</td>
+    <td><img src="picture/yzm.png" class="yzm-img" style="padding-left:20px;"></td>
+    <td><a href="#">看不清?</a></td>
+   </tr>
+    <tr>
+	<td style="width:92px; height: 50px; text-align: center"><input type="checkbox" ></td>
+    <td>我已认真阅读并接受</td>
+    <td><a href="#">《***股票比赛用户协议》</a></td>
+   </tr>
+  </table>
+  <p><input type="submit" value="注册" class="register-bt rg-bt-tan"></p>
+  </form>
+</div>
+<!--daohang-->
+<div class="daohang">
+ <div class="wraper daohang-toolbar">
+  <div class="pull-left">
+   <a href="#"><img src="style/images/logo.png" width="214" height="54"></a>
+  </div>
+  <div class="pull-right">
+    <ul class="daohang-bar">
+         <li><a href="../index.html">首页</a></li> <li><a href="比赛.html">股票比赛</a></li><li><a href="../比赛公告/比赛公告.html">比赛公告</a></li>
+         <li><a href="../股票大全/股票大全.html">热点股票</a></li>
+         <li><a href="../排行榜/排行榜.html">排行榜</a></li>
+         <li><a href="../商城/商城.html">积分商城</a></li>
+         <li><a href="https://www.sbo8.com/">股票学院</a></li>
+    </ul>
+  </div>
+ </div>
+ <div class="clearfix"></div>
+</div>
+<!--middle-->
+<div class="middle">
+    <!-- InstanceBeginEditable name="EditRegion4" -->
+  <div class="wraper">
+   <div class="rg-title">
+   <span><img src="picture/jt.png" class="jt-img"></span>
+   <span>找回密码</span>
+   </div>
+   <div class="find-kuang">
+   <form class="msform" >
+	<!-- progressbar -->
+	<ul id="progressbar" class="find-bar">
+		<li>确认账户</li>
+		<li class="active">安全验证</li>
+		<li>重置密码</li>
+        <li>完成</li>
+	</ul>
+	<!-- fieldsets -->
+	<fieldset>
+    <script type="text/javascript">
+function test(Names){
+	var Name
+	for (var i=1;i<4;i++){	//  更改数字4可以改变选择的内容数量，在下拉总数值的基础上+1.比如：下拉菜单有5个值，则4变成6
+		var tempname="mune_x"+i                                                                            
+		var NewsHot="x"+i	//  “X”是ID名称，比如：ID命名为“case1”，这里的“X”即为“case”
+		if (Names==tempname){
+			Nnews=document.getElementById(NewsHot)
+			Nnews.style.display='';
+		}else{
+			Nnews=document.getElementById(NewsHot)
+			Nnews.style.display='none';   
+		}
+	}
+}
+</script>
+        <div class="list">
+		请选择验证身份方式：
+		<select style="width:250px;padding:5px;" size="1" name="D1" onChange="javascript:test('mune_x'+this.value)">  
+			<option value="1">已验证手机</option> 
+			<option value="2">已验证邮箱</option> 
+		</select> 
+	   </div>	
+	<!-------------------------------手机-------------------------------------->
+	    <div class="list" id="x1">
+          <table border="0" cellspacing="0" width="660" style="margin:20px auto;">
+           <tr>
+	       <td style="width:140px;height:70px;text-align:right;">已验证手机号：</td>
+           <td><span style="color:#e25b2c;">150*****562</span><span style="padding-left:30px;"><input type="button" id="btn" value=" 免费获取验证码 "></span></td>
+          </tr>
+          <tr>
+           <td style="width:140px;height:70px;text-align:right;">验证码：</td>
+           <td><input type="text" placeholder="  输入验证码" ></td>
+          </tr>
+          </table>
+	   </div>	
+	<!-------------------------------邮箱-------------------------------------->
+	   <div class="list" id="x2" style="display:none">
+		  <table border="0" cellspacing="0" width="660" style="margin:20px auto;">
+           <tr>
+	       <td style="width:140px;height:70px;text-align:right;">已验证邮箱号：</td>
+           <td><span style="color:#e25b2c;">150*****562</span><span style="padding-left:30px;"><input type="button" id="btn" value=" 免费获取验证码 "></span></td>
+          </tr>
+          <tr>
+           <td style="width:140px;height:70px;text-align:right;">验证码：</td>
+           <td><input type="text" placeholder="输入验证码" ></td>
+          </tr>
+          </table>
+	   </div>
+		<input type="button" name="next" class="next action-button" value="下一步" />
+	</fieldset>
+  </form> 
+ </div> 
+</div>
+	<!-- InstanceEndEditable --> 
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="wraper">
+     <div class="foot-about">
+     <ul class="clearfix about-link">
+      <li><a href="#">关于我们</a>|</li>
+	  <li><a href="#">常见问题</a>|</li><li><a href="#">联系我们</a>|</li><li><a href="#">网站地图</a>|</li><li><a href="#">商务合作</a>|</li><li><a href="#">合作伙伴</a>|</li><li><a href="#">使用条例</a>|</li><li><a href="#">问题反馈</a></li>
+      </ul>
+      <div class="clearfix about-us">
+	   <span>关注我们:</span><a href="#"><img src="style/images/qq.png" /></a><a href="#"><img src="style/images/xl.png" /></a><a href="#"><img src="style/images/wb.png" /></a><a href="#"><img src="style/images/wx.png" /></a>
+       <span class="qqun">官方交流1群:8888888(满)&nbsp;&nbsp;&nbsp;&nbsp;官方交流2群:9999999</span>
+      </div>
+	  <div class="about-kefu">
+        <em>客服热线（工作时间 9:00~18:00）</em>
+        <strong>888-888-8888</strong>
+        <a><img src="style/images/kf.png" >在线客服</a>
+		</div>
+      </div>
+     
+      <hr class="footer_line" />
+      <div class="foot-safelink">
+      <a href="#"><img src="style/images/cxwz.png" /></a>
+      <a href="#"><img src="style/images/360.png" /></a>
+      <a href="#"><img src="style/images/aqyz.png" /></a>
+      <a href="#"><img src="style/images/kxwz.png" /></a>
+      <a href="#"><img src="style/images/qyzs.png" /></a>
+      </div>
+      
+    <p>
+    Copyright ©2010-2015 "网站名称" All Rights Reserved.<span>备案信息:ICP备案111111</span><span>经营许可证：B2-20110127</span><span>电信增值业务：B2-20110127</span>
+<br>风险提示:保护投资者利益是中国证监会工作的重中之重.&nbsp;某某炒股比赛网提醒您,股市有风险,投资需谨慎！本站提供之资料或信息,仅供投资者参考,不构成投资建议.
+    </p>
+   </div>
+  </div>
+</body>
+<!-- InstanceEnd --></html>
